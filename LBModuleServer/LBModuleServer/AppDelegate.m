@@ -17,6 +17,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSRecursiveLock *lock = [[NSRecursiveLock alloc] init];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       
+        static void (^RecursiveMethod)(int);
+        
+        RecursiveMethod = ^(int value){
+          
+            [lock lock];
+            if (value > 0)
+            {
+                NSLog(@"value = %d %@", value, [NSThread currentThread]);
+                sleep(2);
+                RecursiveMethod(value - 1);
+            }
+            [lock unlock];
+        };
+        
+        RecursiveMethod(5);
+        
+    });
+    
     return YES;
 }
 

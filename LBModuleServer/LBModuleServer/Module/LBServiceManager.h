@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define LB_SERVICE_MANAGER
+
 @class LBModuleContext;
 
 @interface LBServiceManager : NSObject
@@ -21,5 +23,7 @@
 - (void)registerService:(Protocol *)service implClass:(Class)implClass;
 
 - (id)createService:(Protocol *)service;
+
+- (Class)createServiceClass:(Protocol *)service;
 
 @end

@@ -95,13 +95,16 @@ static const NSString *kImpl = @"impl";
         
     }
     
+    // 是否单例服务对象再上下文环境中获取
     NSString *serviceStr = NSStringFromProtocol(service);
     id protocolImpl = [[LBModuleContext shareInstance] getServiceInstanceFromServiceName:serviceStr];
     if (protocolImpl) {
         return protocolImpl;
     }
     
+    // 获取服务的类
     Class implClass = [self serviceImplClass:service];
+    // 单例对象
     if ([[implClass class] respondsToSelector:@selector(singleton)]) {
         if ([[implClass class] singleton]) {
             if ([[implClass class] respondsToSelector:@selector(shareInstance)])
@@ -114,6 +117,7 @@ static const NSString *kImpl = @"impl";
         }
     }
     
+    // 返回服务实例对象
     return [[implClass alloc] init];
 }
 

@@ -26,19 +26,25 @@
 
 @interface LBModuleServer : NSObject
 
-//save application global context
+//程序运行全局的上下文
 @property(nonatomic, strong) LBModuleContext *context;
 
+// 开启异常信息
 @property (nonatomic, assign) BOOL enableException;
 
+// 单例方法
 + (instancetype)shareInstance;
 
+// 注册模块
 + (void)registerDynamicModule:(Class) moduleClass;
 
+// 创建提供服务的对象
 - (id)createService:(Protocol *)proto;
 
-//Registration is recommended to use a static way
+// 注册服务和提供服务的类
 - (void)registerService:(Protocol *)proto service:(Class) serviceClass;
 
+// 触发自定义事件
 + (void)triggerCustomEvent:(NSInteger)eventType;
+
 @end
