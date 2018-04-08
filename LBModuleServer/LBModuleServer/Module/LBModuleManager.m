@@ -334,26 +334,34 @@ static  NSString *kAppCustomSelector = @"modDidCustomEvent:";
         [self.BHModulesByEvent setObject:@[].mutableCopy forKey:eventTypeNumber];
     }
     NSMutableArray *eventModules = [self.BHModulesByEvent objectForKey:eventTypeNumber];
-    if (![eventModules containsObject:moduleInstance]) {
+    if (![eventModules containsObject:moduleInstance])
+    {
         [eventModules addObject:moduleInstance];
         [eventModules sortUsingComparator:^NSComparisonResult(id<LBModuleProtocol> moduleInstance1, id<LBModuleProtocol> moduleInstance2) {
             NSNumber *module1Level = @(BHModuleNormal);
             NSNumber *module2Level = @(BHModuleNormal);
-            if ([moduleInstance1 respondsToSelector:@selector(basicModuleLevel)]) {
+            if ([moduleInstance1 respondsToSelector:@selector(basicModuleLevel)])
+            {
                 module1Level = @(BHModuleBasic);
             }
-            if ([moduleInstance2 respondsToSelector:@selector(basicModuleLevel)]) {
+            if ([moduleInstance2 respondsToSelector:@selector(basicModuleLevel)])
+            {
                 module2Level = @(BHModuleBasic);
             }
-            if (module1Level.integerValue != module2Level.integerValue) {
+            if (module1Level.integerValue != module2Level.integerValue)
+            {
                 return module1Level.integerValue > module2Level.integerValue;
-            } else {
+            }
+            else
+            {
                 NSInteger module1Priority = 0;
                 NSInteger module2Priority = 0;
-                if ([moduleInstance1 respondsToSelector:@selector(modulePriority)]) {
+                if ([moduleInstance1 respondsToSelector:@selector(modulePriority)])
+                {
                     module1Priority = [moduleInstance1 modulePriority];
                 }
-                if ([moduleInstance2 respondsToSelector:@selector(modulePriority)]) {
+                if ([moduleInstance2 respondsToSelector:@selector(modulePriority)])
+                {
                     module2Priority = [moduleInstance2 modulePriority];
                 }
                 return module1Priority < module2Priority;
@@ -436,7 +444,7 @@ static  NSString *kAppCustomSelector = @"modDidCustomEvent:";
     switch (eventType) {
         case BHMInitEvent:
             //special
-            [self handleModulesInitEventForTarget:nil withCustomParam :customParam];
+            [self handleModulesInitEventForTarget:nil withCustomParam:customParam];
             break;
         case BHMTearDownEvent:
             //special
@@ -459,9 +467,12 @@ static  NSString *kAppCustomSelector = @"modDidCustomEvent:";
     context.customEvent = BHMInitEvent;
     
     NSArray<id<LBModuleProtocol>> *moduleInstances;
-    if (target) {
+    if (target)
+    {
         moduleInstances = @[target];
-    } else {
+    }
+    else
+    {
         moduleInstances = [self.BHModulesByEvent objectForKey:@(BHMInitEvent)];
     }
     
@@ -470,8 +481,10 @@ static  NSString *kAppCustomSelector = @"modDidCustomEvent:";
         void ( ^ bk )();
         bk = ^(){
             __strong typeof(&*self) sself = wself;
-            if (sself) {
-                if ([moduleInstance respondsToSelector:@selector(modInit:)]) {
+            if (sself)
+            {
+                if ([moduleInstance respondsToSelector:@selector(modInit:)])
+                {
                     [moduleInstance modInit:context];
                 }
             }
@@ -479,18 +492,24 @@ static  NSString *kAppCustomSelector = @"modDidCustomEvent:";
         
 //        [[BHTimeProfiler sharedTimeProfiler] recordEventTime:[NSString stringWithFormat:@"%@ --- modInit:", [moduleInstance class]]];
         
-        if ([moduleInstance respondsToSelector:@selector(async)]) {
+        if ([moduleInstance respondsToSelector:@selector(async)])
+        {
             BOOL async = [moduleInstance async];
             
-            if (async) {
+            if (async)
+            {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     bk();
                 });
                 
-            } else {
+            }
+            else
+            {
                 bk();
             }
-        } else {
+        }
+        else
+        {
             bk();
         }
     }];
@@ -504,16 +523,20 @@ static  NSString *kAppCustomSelector = @"modDidCustomEvent:";
     context.customEvent = BHMTearDownEvent;
     
     NSArray<id<LBModuleProtocol>> *moduleInstances;
-    if (target) {
+    if (target)
+    {
         moduleInstances = @[target];
-    } else {
+    }
+    else
+    {
         moduleInstances = [self.BHModulesByEvent objectForKey:@(BHMTearDownEvent)];
     }
     
     //Reverse Order to unload
     for (int i = (int)moduleInstances.count - 1; i >= 0; i--) {
         id<LBModuleProtocol> moduleInstance = [moduleInstances objectAtIndex:i];
-        if (moduleInstance && [moduleInstance respondsToSelector:@selector(modTearDown:)]) {
+        if (moduleInstance && [moduleInstance respondsToSelector:@selector(modTearDown:)])
+        {
             [moduleInstance modTearDown:context];
         }
     }
@@ -531,18 +554,23 @@ static  NSString *kAppCustomSelector = @"modDidCustomEvent:";
         selectorStr = [self.BHSelectorByEvent objectForKey:@(eventType)];
     }
     SEL seletor = NSSelectorFromString(selectorStr);
-    if (!seletor) {
+    if (!seletor)
+    {
         selectorStr = [self.BHSelectorByEvent objectForKey:@(eventType)];
         seletor = NSSelectorFromString(selectorStr);
     }
     NSArray<id<LBModuleProtocol>> *moduleInstances;
-    if (target) {
+    if (target)
+    {
         moduleInstances = @[target];
-    } else {
+    }
+    else
+    {
         moduleInstances = [self.BHModulesByEvent objectForKey:@(eventType)];
     }
     [moduleInstances enumerateObjectsUsingBlock:^(id<LBModuleProtocol> moduleInstance, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([moduleInstance respondsToSelector:seletor]) {
+        if ([moduleInstance respondsToSelector:seletor])
+        {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [moduleInstance performSelector:seletor withObject:context];

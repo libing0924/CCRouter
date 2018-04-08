@@ -79,4 +79,9 @@
 - (void)modHandleWatchKitExtensionRequest:(LBModuleContext *)context;
 
 - (void)modDidCustomEvent:(LBModuleContext *)context;
+
+// 管理模块下的服务
+
+// 记录模块下服务的调用次数、创建次数(单例1次 非单例多次与调用次数相同)、服务与实例的映射、服务异常、终止服务
+
 @end

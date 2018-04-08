@@ -37,7 +37,8 @@ static const NSString *kImpl = @"impl";
     NSString *serviceConfigName = [LBModuleContext shareInstance].serviceConfigName;
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:serviceConfigName ofType:@"plist"];
-    if (!plistPath) {
+    if (!plistPath)
+    {
         return;
     }
     
@@ -47,7 +48,8 @@ static const NSString *kImpl = @"impl";
     for (NSDictionary *dict in serviceList) {
         NSString *protocolKey = [dict objectForKey:@"service"];
         NSString *protocolImplClass = [dict objectForKey:@"impl"];
-        if (protocolKey.length > 0 && protocolImplClass.length > 0) {
+        if (protocolKey.length > 0 && protocolImplClass.length > 0)
+        {
             [self.allServicesDict addEntriesFromDictionary:@{protocolKey:protocolImplClass}];
         }
     }
@@ -59,15 +61,19 @@ static const NSString *kImpl = @"impl";
     NSParameterAssert(service != nil);
     NSParameterAssert(implClass != nil);
     
-    if (![implClass conformsToProtocol:service]) {
-        if (self.enableException) {
+    if (![implClass conformsToProtocol:service])
+    {
+        if (self.enableException)
+        {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ module does not comply with %@ protocol", NSStringFromClass(implClass), NSStringFromProtocol(service)] userInfo:nil];
         }
         return;
     }
     
-    if ([self checkValidService:service]) {
-        if (self.enableException) {
+    if ([self checkValidService:service])
+    {
+        if (self.enableException)
+        {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ protocol has been registed", NSStringFromProtocol(service)] userInfo:nil];
         }
         return;
@@ -76,7 +82,8 @@ static const NSString *kImpl = @"impl";
     NSString *key = NSStringFromProtocol(service);
     NSString *value = NSStringFromClass(implClass);
     
-    if (key.length > 0 && value.length > 0) {
+    if (key.length > 0 && value.length > 0)
+    {
         [self.lock lock];
         [self.allServicesDict addEntriesFromDictionary:@{key:value}];
         [self.lock unlock];
@@ -88,17 +95,20 @@ static const NSString *kImpl = @"impl";
 {
     id implInstance = nil;
     
-    if (![self checkValidService:service]) {
-        if (self.enableException) {
+    if (![self checkValidService:service])
+    {
+        if (self.enableException)
+        {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ protocol does not been registed", NSStringFromProtocol(service)] userInfo:nil];
         }
         
     }
     
-    // 是否单例服务对象再上下文环境中获取
+    // 是否单例服务对象在上下文环境中获取
     NSString *serviceStr = NSStringFromProtocol(service);
     id protocolImpl = [[LBModuleContext shareInstance] getServiceInstanceFromServiceName:serviceStr];
-    if (protocolImpl) {
+    if (protocolImpl)
+    {
         return protocolImpl;
     }
     
@@ -108,10 +118,14 @@ static const NSString *kImpl = @"impl";
     if ([[implClass class] respondsToSelector:@selector(singleton)]) {
         if ([[implClass class] singleton]) {
             if ([[implClass class] respondsToSelector:@selector(shareInstance)])
+            {
                 implInstance = [[implClass class] shareInstance];
+            }
             else
+            {
                 implInstance = [[implClass alloc] init];
-            
+            }
+            // 单例类加入到上下文
             [[LBModuleContext shareInstance] addServiceWithImplInstance:implInstance serviceName:serviceStr];
             return implInstance;
         }
@@ -121,11 +135,20 @@ static const NSString *kImpl = @"impl";
     return [[implClass alloc] init];
 }
 
+- (Class)createServiceClass:(Protocol *)service {
+    
+    // 获取服务的类
+    Class implClass = [self serviceImplClass:service];
+    
+    return implClass;
+}
+
 #pragma mark - private
 - (Class)serviceImplClass:(Protocol *)service
 {
     NSString *serviceImpl = [[self servicesDict] objectForKey:NSStringFromProtocol(service)];
-    if (serviceImpl.length > 0) {
+    if (serviceImpl.length > 0)
+    {
         return NSClassFromString(serviceImpl);
     }
     return nil;
@@ -134,7 +157,8 @@ static const NSString *kImpl = @"impl";
 - (BOOL)checkValidService:(Protocol *)service
 {
     NSString *serviceImpl = [[self servicesDict] objectForKey:NSStringFromProtocol(service)];
-    if (serviceImpl.length > 0) {
+    if (serviceImpl.length > 0)
+    {
         return YES;
     }
     return NO;
@@ -142,7 +166,8 @@ static const NSString *kImpl = @"impl";
 
 - (NSMutableDictionary *)allServicesDict
 {
-    if (!_allServicesDict) {
+    if (!_allServicesDict)
+    {
         _allServicesDict = [NSMutableDictionary dictionary];
     }
     return _allServicesDict;

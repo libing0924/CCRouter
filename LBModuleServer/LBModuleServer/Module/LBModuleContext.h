@@ -11,19 +11,20 @@
 #import "LBServiceProtocol.h"
 #import <UIKit/UIKit.h>
 
-typedef enum
-{
-    BHEnvironmentDev = 0,
-    BHEnvironmentTest,
-    BHEnvironmentStage,
-    BHEnvironmentProd
-}BHEnvironmentType;
+typedef NS_ENUM(NSInteger, LBEnvironmentType) {
+    
+    LBEnvironmentDevelop = 0, // 开发
+    LBEnvironmentDebug, // 测试
+    LBEnvironmentStage, // 演示
+    LBEnvironmentRelease // 发布
+    
+};
 
 
 @interface LBModuleContext : NSObject <NSCopying>
 
 //global env
-@property(nonatomic, assign) BHEnvironmentType env;
+@property(nonatomic, assign) LBEnvironmentType env;
 
 //application appkey
 @property(nonatomic, strong) NSString *appkey;
@@ -38,32 +39,32 @@ typedef enum
 
 @property(nonatomic, strong) NSString *serviceConfigName;
 
-//3D-Touch model
-//#if __IPHONE_OS_VERSION_MAX_ALLOWED > 80400
-//@property (nonatomic, strong) BHShortcutItem *touchShortcutItem;
-//#endif
-//
-////OpenURL model
-//@property (nonatomic, strong) BHOpenURLItem *openURLItem;
-//
-////Notifications Remote or Local
-//@property (nonatomic, strong) BHNotificationsItem *notificationsItem;
-//
-////user Activity Model
-//@property (nonatomic, strong) BHUserActivityItem *userActivityItem;
-//
-////watch Model
-//@property (nonatomic, strong) BHWatchItem *watchItem;
-
 //custom param
 @property (nonatomic, copy) NSDictionary *customParam;
 
 + (instancetype)shareInstance;
 
+/**
+ 缓存单例服务对象
+
+ @param implInstance 单例对象
+ @param serviceName 服务名
+ */
 - (void)addServiceWithImplInstance:(id)implInstance serviceName:(NSString *)serviceName;
 
+/**
+ 移除缓存
+
+ @param serviceName 服务名
+ */
 - (void)removeServiceWithServiceName:(NSString *)serviceName;
 
+/**
+ 获取服务实例
+
+ @param serviceName 服务名
+ @return 服务实例
+ */
 - (id)getServiceInstanceFromServiceName:(NSString *)serviceName;
 
 @end

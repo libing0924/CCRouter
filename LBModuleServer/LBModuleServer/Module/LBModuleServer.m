@@ -15,13 +15,13 @@
 + (instancetype)shareInstance
 {
     static dispatch_once_t p;
-    static id BHInstance = nil;
+    static id moduleServer = nil;
     
     dispatch_once(&p, ^{
-        BHInstance = [[self alloc] init];
+        moduleServer = [[self alloc] init];
     });
     
-    return BHInstance;
+    return moduleServer;
 }
 
 // 消息转发

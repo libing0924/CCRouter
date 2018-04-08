@@ -65,6 +65,7 @@
 		D6C8423B1FD7CD1200DCDD78 /* LBModuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBModuleManager.h; sourceTree = "<group>"; };
 		D6C8423C1FD7CD1200DCDD78 /* LBServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBServiceProtocol.h; sourceTree = "<group>"; };
 		D6C8423D1FD7CD1200DCDD78 /* LBModuleContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBModuleContext.h; sourceTree = "<group>"; };
+		D6C992252079D0410017790C /* LBModuleServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBModuleServiceProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +161,7 @@
 				D6C8423A1FD7CD1200DCDD78 /* LBServiceManager.h */,
 				D6C842361FD7CD1200DCDD78 /* LBServiceManager.m */,
 				D6C8423C1FD7CD1200DCDD78 /* LBServiceProtocol.h */,
+				D6C992252079D0410017790C /* LBModuleServiceProtocol.h */,
 			);
 			path = Module;
 			sourceTree = "<group>";
