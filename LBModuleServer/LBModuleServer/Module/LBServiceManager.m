@@ -115,8 +115,10 @@ static const NSString *kImpl = @"impl";
     // 获取服务的类
     Class implClass = [self serviceImplClass:service];
     // 单例对象
-    if ([[implClass class] respondsToSelector:@selector(singleton)]) {
-        if ([[implClass class] singleton]) {
+    if ([[implClass class] respondsToSelector:@selector(singleton)])
+    {
+        if ([[implClass class] singleton])
+        {
             if ([[implClass class] respondsToSelector:@selector(shareInstance)])
             {
                 implInstance = [[implClass class] shareInstance];
@@ -175,7 +177,8 @@ static const NSString *kImpl = @"impl";
 
 - (NSRecursiveLock *)lock
 {
-    if (!_lock) {
+    if (!_lock)
+    {
         _lock = [[NSRecursiveLock alloc] init];
     }
     return _lock;
