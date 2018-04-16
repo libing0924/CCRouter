@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D68B67C520844AB100A7C16A /* CCURLRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C420844AB100A7C16A /* CCURLRegister.m */; };
+		D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C720844C0600A7C16A /* CCURLRouter.m */; };
+		D68B67CB20844F3700A7C16A /* CCURLSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67CA20844F3700A7C16A /* CCURLSchedule.m */; };
+		D68B67CE2084505900A7C16A /* CCURLPool.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67CD2084505900A7C16A /* CCURLPool.m */; };
 		D6C842031FD7CCED00DCDD78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842021FD7CCED00DCDD78 /* AppDelegate.m */; };
 		D6C842061FD7CCED00DCDD78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842051FD7CCED00DCDD78 /* ViewController.m */; };
 		D6C842091FD7CCED00DCDD78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C842071FD7CCED00DCDD78 /* Main.storyboard */; };
@@ -39,6 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D68B67C320844AB100A7C16A /* CCURLRegister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLRegister.h; sourceTree = "<group>"; };
+		D68B67C420844AB100A7C16A /* CCURLRegister.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLRegister.m; sourceTree = "<group>"; };
+		D68B67C620844C0600A7C16A /* CCURLRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLRouter.h; sourceTree = "<group>"; };
+		D68B67C720844C0600A7C16A /* CCURLRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLRouter.m; sourceTree = "<group>"; };
+		D68B67C920844F3700A7C16A /* CCURLSchedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLSchedule.h; sourceTree = "<group>"; };
+		D68B67CA20844F3700A7C16A /* CCURLSchedule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLSchedule.m; sourceTree = "<group>"; };
+		D68B67CC2084505900A7C16A /* CCURLPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLPool.h; sourceTree = "<group>"; };
+		D68B67CD2084505900A7C16A /* CCURLPool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLPool.m; sourceTree = "<group>"; };
+		D68B67CF208463E500A7C16A /* CCURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLProtocol.h; sourceTree = "<group>"; };
 		D6C841FE1FD7CCED00DCDD78 /* LBModuleServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBModuleServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C842011FD7CCED00DCDD78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6C842021FD7CCED00DCDD78 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,6 +105,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D68B67C220844A7E00A7C16A /* URLModule */ = {
+			isa = PBXGroup;
+			children = (
+				D68B67C920844F3700A7C16A /* CCURLSchedule.h */,
+				D68B67CA20844F3700A7C16A /* CCURLSchedule.m */,
+				D68B67C320844AB100A7C16A /* CCURLRegister.h */,
+				D68B67C420844AB100A7C16A /* CCURLRegister.m */,
+				D68B67C620844C0600A7C16A /* CCURLRouter.h */,
+				D68B67C720844C0600A7C16A /* CCURLRouter.m */,
+				D68B67CC2084505900A7C16A /* CCURLPool.h */,
+				D68B67CD2084505900A7C16A /* CCURLPool.m */,
+				D68B67CF208463E500A7C16A /* CCURLProtocol.h */,
+			);
+			path = URLModule;
+			sourceTree = "<group>";
+		};
 		D6C841F51FD7CCED00DCDD78 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +144,7 @@
 		D6C842001FD7CCED00DCDD78 /* LBModuleServer */ = {
 			isa = PBXGroup;
 			children = (
+				D68B67C220844A7E00A7C16A /* URLModule */,
 				D6C842331FD7CCF700DCDD78 /* Module */,
 				D6C842011FD7CCED00DCDD78 /* AppDelegate.h */,
 				D6C842021FD7CCED00DCDD78 /* AppDelegate.m */,
@@ -297,12 +327,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68B67C520844AB100A7C16A /* CCURLRegister.m in Sources */,
 				D6C842061FD7CCED00DCDD78 /* ViewController.m in Sources */,
 				D6C8423F1FD7CD1200DCDD78 /* LBServiceManager.m in Sources */,
 				D6C842401FD7CD1200DCDD78 /* LBModuleServer.m in Sources */,
+				D68B67CE2084505900A7C16A /* CCURLPool.m in Sources */,
+				D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */,
 				D6C842411FD7CD1200DCDD78 /* LBModuleManager.m in Sources */,
 				D6C8423E1FD7CD1200DCDD78 /* LBModuleContext.m in Sources */,
 				D6C842111FD7CCED00DCDD78 /* main.m in Sources */,
+				D68B67CB20844F3700A7C16A /* CCURLSchedule.m in Sources */,
 				D6C842031FD7CCED00DCDD78 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

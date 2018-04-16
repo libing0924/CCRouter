@@ -6,6 +6,7 @@
 //  Copyright © 2017年 李冰. All rights reserved.
 //
 // 基于BeeHive、Spring的组件化框架
+// BeeHive https://github.com/alibaba/BeeHive
 // Spring https://www.ibm.com/developerworks/cn/java/wa-spring1/
 // Apache AOP http://httpd.apache.org/docs/current/dso.html
 // Cocoapods https://cocoapods.org
@@ -23,7 +24,6 @@
 #import <Foundation/Foundation.h>
 #import "LBModuleProtocol.h"
 #import "LBModuleContext.h"
-//#import "BHAppDelegate.h"
 #import "LBModuleManager.h"
 #import "LBServiceManager.h"
 
