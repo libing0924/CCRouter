@@ -14,14 +14,12 @@ FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPresent;
 
 @interface CCURLRouter : NSObject
 
-- (BOOL)openURL:(NSString *)URL;
+- (BOOL)openURL:(NSURL *)URL;
 
-- (BOOL)openURL:(NSString *)URL customParameter:(NSDictionary *)parameter;
+- (BOOL)openURL:(NSURL *)URL customParameter:(NSDictionary *)parameter;
 
-- (BOOL)openURL:(NSString *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
+- (BOOL)openURL:(NSURL *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
 
-- (id)objectFromURL:(NSString *)URL;
-
-- (Class)classFromURL:(NSString *)URL;
+- (NSString *)classNameWithURL:(NSURL *)URL;
 
 @end

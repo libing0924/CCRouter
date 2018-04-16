@@ -21,12 +21,16 @@
 - (void)setURLPoolCapacity:(NSInteger)capacity;
 
 // 获取class name
-- (Class)classFromURL:(NSString *)URL;
+- (NSString *)classNameFromURL:(NSString *)URLStr;
 
-//- (id)objectForURL:(NSURL *)URL;
+// 获取查询说明
+- (NSString *)queryDescriptionFromURL:(NSString *)URLStr;
 
-- (void)addClass:(nonnull Class)className URL:(nonnull NSString *)URL;
+// 获取object
+- (NSDictionary *)objectFromURL:(NSString *)URLStr;
 
-- (void)removeClassFromURL:(nonnull NSString *)URL;
+- (BOOL)addClassName:(nonnull NSString *)className URL:(nonnull NSString *)URLStr queryDescription:(NSString *)queryDescription;
+
+- (BOOL)removeClassFromURL:(nonnull NSString *)URLStr;
 
 @end

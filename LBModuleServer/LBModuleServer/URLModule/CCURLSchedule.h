@@ -7,19 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCURLProtocol.h"
 
 @interface CCURLSchedule : NSObject
 
 + (id)shareInstance;
 
-- (BOOL)rigisterURL:(NSURL *)URL calss:(Class)className;
-- (BOOL)unregisterURL:(NSURL *)URL calss:(Class)className;
-- (Class)classWithURL:(NSURL *)URL;
+- (BOOL)registerLocalURLWithPath:(NSString *)path;
+- (BOOL)registerURL:(NSString *)URLStr calss:(Class)className;
+- (BOOL)registerURL:(NSString *)URL calssName:(Class)className queryDescription:(NSString *)queryDescription;
+- (BOOL)unregisterURL:(NSString *)URLStr calss:(Class)className;
 
-- (BOOL)openURL:(NSURL *)URL;
-- (BOOL)openURL:(NSURL *)URL customParameter:(NSDictionary *)parameter;
-- (BOOL)openURL:(NSURL *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
-- (id)objectFromURL:(NSURL *)URL;
-- (Class)classFromURL:(NSURL *)URL;
+
+- (BOOL)openURL:(NSString *)URLStr;
+- (BOOL)openURL:(NSString *)URLStr customParameter:(NSDictionary *)parameter;
+- (BOOL)openURL:(NSString *)URLStr openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
+- (Class)classFromURL:(NSString *)URLStr;
 
 @end

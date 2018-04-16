@@ -8,6 +8,10 @@
 
 #import "CCURLPool.h"
 
+#define CC_URLPOOL_CLASS_NAME_KEY @"cc.urlPool.className.key"
+
+#define CC_URLPOOL_QUERY_DES_KEY @"cc.urlPool.queryDescription.key"
+
 @interface CCURLPool ()
 
 @property (nonatomic, strong) NSMutableDictionary *dataSource;
@@ -37,27 +41,56 @@
     
 }
 
-- (Class)classNameForURL:(NSString *)URL {
+- (NSString *)classNameFromURL:(NSString *)URLStr {
     
-    if (!URL) return nil;
+    NSDictionary *object = [self objectFromURL:URLStr];
     
-    NSString *className = [self.dataSource objectForKey:URL];
+    if (!object) return nil;
     
-    Class class = NSClassFromString(className);
+    NSString *className = [object objectForKey:CC_URLPOOL_CLASS_NAME_KEY];
     
-    return class;
+    return className;
 }
 
-- (void)addClass:(Class)className URL:(NSString *)URL {
+- (NSString *)queryDescriptionFromURL:(NSString *)URLStr {
     
-    if (!className || !URL) return;
     
-    [self.dataSource setObject:NSStringFromClass(className) forKey:URL];
+    NSDictionary *object = [self objectFromURL:URLStr];
+    
+    if (!object) return nil;
+    
+    NSString *className = [object objectForKey:CC_URLPOOL_CLASS_NAME_KEY];
+    
+    return className;
 }
 
-- (void)removeClassFromURL:(NSString *)URL {
+- (NSDictionary *)objectFromURL:(NSString *)URLStr {
+    
+    if (!URLStr) return nil;
+    
+    NSDictionary *object = [self.dataSource objectForKey:URLStr];
+    
+    if (![object isKindOfClass:[NSDictionary class]]) return nil;
+    
+    return object;
+}
+
+- (BOOL)addClassName:(NSString *)className URL:(NSString *)URLStr queryDescription:(NSString *)queryDescription{
+    
+    if (!className || !URLStr) return NO;
+    
+    NSDictionary *object = [NSDictionary dictionaryWithObjects:@[className, queryDescription] forKeys:@[CC_URLPOOL_CLASS_NAME_KEY, CC_URLPOOL_QUERY_DES_KEY]];
+    
+    [self.dataSource setObject:object forKey:URLStr];
+    
+    return YES;
+}
+
+- (BOOL)removeClassFromURL:(NSString *)URL {
     
     [self.dataSource removeObjectForKey:URL];
+    
+    return YES;
 }
 
 @end

@@ -15,18 +15,18 @@ NSString * const CCURLRouterOpenMethodPresent = @"cc.urlModule.openMethod.presen
 
 @implementation CCURLRouter
 
-- (BOOL)openURL:(NSString *)URL {
+- (BOOL)openURL:(NSURL *)URL {
     
     return [self openURL:URL customParameter:nil];
     
 }
 
-- (BOOL)openURL:(NSString *)URL customParameter:(NSDictionary *)parameter {
+- (BOOL)openURL:(NSURL *)URL customParameter:(NSDictionary *)parameter {
     
     return [self openURL:URL openMethod:nil authorization:nil ID:nil customParameter:parameter];
 }
 
-- (BOOL)openURL:(NSString *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
+- (BOOL)openURL:(NSURL *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
     
     if (!URL) return NO;
     
@@ -36,12 +36,7 @@ NSString * const CCURLRouterOpenMethodPresent = @"cc.urlModule.openMethod.presen
     return YES;
 }
 
-- (id)objectFromURL:(NSString *)URL {
-    
-    return nil;
-}
-
-- (Class)classFromURL:(NSString *)URL {
+- (NSString *)classNameWithURL:(NSURL *)URL {
     
     return nil;
 }
