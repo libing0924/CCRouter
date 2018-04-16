@@ -12,13 +12,21 @@ FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPush;
 
 FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPresent;
 
+FOUNDATION_EXTERN NSString * const CCURLRouterIDKey;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodKey;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterAuthorizationKey;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterCustomParameterKey;
+
 @interface CCURLRouter : NSObject
 
-- (BOOL)openURL:(NSURL *)URL;
+- (id)openURL:(NSURL *)URL;
 
-- (BOOL)openURL:(NSURL *)URL customParameter:(NSDictionary *)parameter;
+- (id)openURL:(NSURL *)URL customParameter:(NSDictionary *)parameter;
 
-- (BOOL)openURL:(NSURL *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
+- (id)openURL:(NSURL *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
 
 - (NSString *)classNameWithURL:(NSURL *)URL;
 
