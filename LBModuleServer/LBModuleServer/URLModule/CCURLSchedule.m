@@ -37,10 +37,12 @@
     
     return [self.URLRegister registerLocalWithPath:path];
 }
-- (BOOL)rigisterURL:(NSString *)URLStr calss:(Class)className {
+
+- (BOOL)registerURL:(NSString *)URLStr calss:(Class)className {
     
     return [self registerURL:URLStr calssName:className queryDescription:nil];
 }
+
 - (BOOL)registerURL:(NSString *)URLStr calssName:(Class)className queryDescription:(NSString *)queryDescription {
     
     NSURL *URL = [self _processURLWithString:URLStr];
@@ -49,6 +51,7 @@
     
     return [self.URLRegister registerURL:URL calssName:NSStringFromClass(className) queryDescription:queryDescription];
 }
+
 - (BOOL)unregisterURL:(NSString *)URLStr calss:(Class)className {
     
     NSURL *URL = [self _processURLWithString:URLStr];
@@ -63,10 +66,12 @@
     
     return [self openURL:URLStr customParameter:nil];
 }
+
 - (BOOL)openURL:(NSString *)URLStr customParameter:(NSDictionary *)parameter {
     
     return [self openURL:URLStr openMethod:nil authorization:nil ID:nil customParameter:nil];
 }
+
 - (BOOL)openURL:(NSString *)URLStr openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
     
     NSURL *URL = [self _processURLWithString:URLStr];
