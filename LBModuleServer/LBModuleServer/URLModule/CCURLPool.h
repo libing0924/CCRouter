@@ -10,6 +10,22 @@
 
 #import <Foundation/Foundation.h>
 
+#define URL_QUERY_DELIMITER @"?"
+#define URL_QUERY_PAIR_DELIMITER @"&"
+#define URL_QUERY_KEY_VALUE_DELIMITER @"="
+
+FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPush;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPresent;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterIDKey;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodKey;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterAuthorizationKey;
+
+FOUNDATION_EXTERN NSString * const CCURLRouterCustomParameterKey;
+
 @interface CCURLPool : NSObject
 
 + (id)shareInstance;

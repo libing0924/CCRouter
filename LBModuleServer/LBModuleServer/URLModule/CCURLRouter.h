@@ -8,18 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPush;
-
-FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPresent;
-
-FOUNDATION_EXTERN NSString * const CCURLRouterIDKey;
-
-FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodKey;
-
-FOUNDATION_EXTERN NSString * const CCURLRouterAuthorizationKey;
-
-FOUNDATION_EXTERN NSString * const CCURLRouterCustomParameterKey;
-
 @interface CCURLRouter : NSObject
 
 - (id)openURL:(NSURL *)URL;

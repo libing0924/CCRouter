@@ -33,6 +33,10 @@
     return schedule;
 }
 
+- (BOOL)registerLocalURLWithPath:(NSString *)path {
+    
+    return [self.URLRegister registerLocalWithPath:path];
+}
 - (BOOL)rigisterURL:(NSString *)URLStr calss:(Class)className {
     
     return [self registerURL:URLStr calssName:className queryDescription:nil];

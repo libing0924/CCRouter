@@ -8,6 +8,18 @@
 
 #import "CCURLPool.h"
 
+NSString * const CCURLRouterOpenMethodPush = @"openMethodPush";
+
+NSString * const CCURLRouterOpenMethodPresent = @"openMethodPresent";
+
+NSString * const CCURLRouterIDKey = @"ID";
+
+NSString * const CCURLRouterOpenMethodKey = @"openMethod";
+
+NSString * const CCURLRouterAuthorizationKey = @"authorization";
+
+NSString * const CCURLRouterCustomParameterKey = @"customParameter";
+
 #define CC_URLPOOL_CLASS_NAME_KEY @"cc.urlPool.className.key"
 
 #define CC_URLPOOL_QUERY_DES_KEY @"cc.urlPool.queryDescription.key"

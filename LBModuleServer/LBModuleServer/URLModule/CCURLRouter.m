@@ -10,22 +10,6 @@
 #import "CCURLPool.h"
 #import "CCURLProtocol.h"
 
-NSString * const CCURLRouterOpenMethodPush = @"openMethodPush";
-
-NSString * const CCURLRouterOpenMethodPresent = @"openMethodPresent";
-
-NSString * const CCURLRouterIDKey = @"ID";
-
-NSString * const CCURLRouterOpenMethodKey = @"openMethod";
-
-NSString * const CCURLRouterAuthorizationKey = @"authorization";
-
-NSString * const CCURLRouterCustomParameterKey = @"customParameter";
-
-#define URL_QUERY_DELIMITER @"?"
-#define URL_QUERY_PAIR_DELIMITER @"&"
-#define URL_QUERY_KEY_VALUE_DELIMITER @"="
-
 @implementation CCURLRouter
 
 - (id)openURL:(NSURL *)URL {
