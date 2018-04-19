@@ -21,9 +21,9 @@
 - (BOOL)registerURL:(NSString *)URL calssName:(Class)className queryDescription:(NSString *)queryDescription;
 - (BOOL)unregisterURL:(NSString *)URLStr calss:(Class)className;
 
-- (BOOL)openURL:(NSString *)URLStr fromObject:(id)fromObject;
-- (BOOL)openURL:(NSString *)URLStr fromObject:(id)fromObject customParameter:(NSDictionary *)parameter;
-- (BOOL)openURL:(NSString *)URLStr fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
+- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject;
+- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject customParameter:(NSDictionary *)parameter;
+- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
 
 - (id)objectFromURL:(NSString *)URLStr customParameter:(NSDictionary *)parameter;
 - (Class)classFromURL:(NSString *)URLStr;

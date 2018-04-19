@@ -62,23 +62,23 @@
 }
 
 
-- (BOOL)openURL:(NSString *)URLStr fromObject:(id)fromObject {
+- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject {
     
     return [self openURL:URLStr fromObject:fromObject customParameter:nil];
 }
 
-- (BOOL)openURL:(NSString *)URLStr fromObject:(id)fromObject customParameter:(NSDictionary *)parameter {
+- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject customParameter:(NSDictionary *)parameter {
     
     return [self openURL:URLStr fromObject:fromObject authorization:nil ID:nil customParameter:nil];
 }
 
-- (BOOL)openURL:(NSString *)URLStr fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
+- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
     
     NSURL *URL = [self _processURLWithString:URLStr];
     
-    if (!URL) return NO;
+    if (!URL) return nil;
     
-    return [self.URLRouter openURL:URL authorization:authorization ID:ID customParameter:parameter];
+    return [self.URLRouter openURL:URL fromObject:fromObject authorization:authorization ID:ID customParameter:parameter];
 }
 
 - (Class)classFromURL:(NSString *)URLStr {

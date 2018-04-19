@@ -49,12 +49,13 @@
     }
     
     id object = [[class alloc] init];
+    BOOL isReturn = YES;
     // 协议处理，暂时通过协议业务侧手动处理参数
     if ([object conformsToProtocol:@protocol(CCURLProtocol)])
     {
         if ([object respondsToSelector:@selector(willBeOpenedWithURL:fromObject:systemParameter:customParameter:)])
         {
-            [object willBeOpenedWithURL:URL fromObject:object systemParameter:systemParameter customParameter:parameter];
+            isReturn = [object willBeOpenedWithURL:URL fromObject:object systemParameter:systemParameter customParameter:parameter];
         }
         
         if ([object respondsToSelector:@selector(hasBeenOpenedWithURL:fromObject:systemParameter:customParameter:)])
@@ -66,6 +67,8 @@
     // 参数处理，暂不处理参数的自动注入
     
     // 构造器，暂不处理指定构造器的参数传入
+    
+    if (!isReturn) return nil;
     
     return object;
 }
