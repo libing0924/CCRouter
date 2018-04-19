@@ -12,17 +12,17 @@
 
 @implementation CCURLRouter
 
-- (id)openURL:(NSURL *)URL {
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject {
     
-    return [self openURL:URL customParameter:nil];
+    return [self openURL:URL fromObject:fromObject customParameter:nil];
 }
 
-- (id)openURL:(NSURL *)URL customParameter:(NSDictionary *)parameter {
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject customParameter:(NSDictionary *)parameter {
     
-    return [self openURL:URL openMethod:nil authorization:nil ID:nil customParameter:parameter];
+    return [self openURL:URL fromObject:fromObject authorization:nil ID:nil customParameter:parameter];
 }
 
-- (id)openURL:(NSURL *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
     
     if (!URL) return nil;
     
@@ -52,14 +52,14 @@
     // 协议处理，暂时通过协议业务侧手动处理参数
     if ([object conformsToProtocol:@protocol(CCURLProtocol)])
     {
-        if ([object respondsToSelector:@selector(willBeOpenedWithURL:systemParameter:customParameter:)])
+        if ([object respondsToSelector:@selector(willBeOpenedWithURL:fromObject:systemParameter:customParameter:)])
         {
-            [object willBeOpenedWithURL:URL systemParameter:systemParameter customParameter:parameter];
+            [object willBeOpenedWithURL:URL fromObject:object systemParameter:systemParameter customParameter:parameter];
         }
         
-        if ([object respondsToSelector:@selector(hasBeenOpenedWithURL:systemParameter:customParameter:)])
+        if ([object respondsToSelector:@selector(hasBeenOpenedWithURL:fromObject:systemParameter:customParameter:)])
         {
-            [object hasBeenOpenedWithURL:URL systemParameter:systemParameter customParameter:parameter];
+            [object hasBeenOpenedWithURL:URL fromObject:object systemParameter:systemParameter customParameter:parameter];
         }
     }
     

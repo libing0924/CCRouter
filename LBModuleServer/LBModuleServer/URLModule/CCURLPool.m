@@ -8,13 +8,7 @@
 
 #import "CCURLPool.h"
 
-NSString * const CCURLRouterOpenMethodPush = @"openMethodPush";
-
-NSString * const CCURLRouterOpenMethodPresent = @"openMethodPresent";
-
 NSString * const CCURLRouterIDKey = @"ID";
-
-NSString * const CCURLRouterOpenMethodKey = @"openMethod";
 
 NSString * const CCURLRouterAuthorizationKey = @"authorization";
 

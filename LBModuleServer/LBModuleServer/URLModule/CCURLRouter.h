@@ -10,11 +10,11 @@
 
 @interface CCURLRouter : NSObject
 
-- (id)openURL:(NSURL *)URL;
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject;
 
-- (id)openURL:(NSURL *)URL customParameter:(NSDictionary *)parameter;
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject customParameter:(NSDictionary *)parameter;
 
-- (id)openURL:(NSURL *)URL openMethod:(NSString *)openMethod authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter;
 
 - (NSString *)classNameWithURL:(NSURL *)URL;
 

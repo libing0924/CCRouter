@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6872CA520882CBB00DAE6D0 /* UIViewController+URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */; };
 		D68B67C520844AB100A7C16A /* CCURLRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C420844AB100A7C16A /* CCURLRegister.m */; };
 		D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C720844C0600A7C16A /* CCURLRouter.m */; };
 		D68B67CB20844F3700A7C16A /* CCURLSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67CA20844F3700A7C16A /* CCURLSchedule.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6872CA320882CBB00DAE6D0 /* UIViewController+URLRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+URLRouter.h"; sourceTree = "<group>"; };
+		D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+URLRouter.m"; sourceTree = "<group>"; };
 		D68B67C320844AB100A7C16A /* CCURLRegister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLRegister.h; sourceTree = "<group>"; };
 		D68B67C420844AB100A7C16A /* CCURLRegister.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLRegister.m; sourceTree = "<group>"; };
 		D68B67C620844C0600A7C16A /* CCURLRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLRouter.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				D68B67CC2084505900A7C16A /* CCURLPool.h */,
 				D68B67CD2084505900A7C16A /* CCURLPool.m */,
 				D68B67CF208463E500A7C16A /* CCURLProtocol.h */,
+				D6872CA320882CBB00DAE6D0 /* UIViewController+URLRouter.h */,
+				D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */,
 			);
 			path = URLModule;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				D6C842111FD7CCED00DCDD78 /* main.m in Sources */,
 				D68B67CB20844F3700A7C16A /* CCURLSchedule.m in Sources */,
 				D6C842031FD7CCED00DCDD78 /* AppDelegate.m in Sources */,
+				D6872CA520882CBB00DAE6D0 /* UIViewController+URLRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
