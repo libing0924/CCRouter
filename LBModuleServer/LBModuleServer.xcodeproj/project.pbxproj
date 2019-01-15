@@ -108,6 +108,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D66F1CE4219E5D04000C198D /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				D6C8423B1FD7CD1200DCDD78 /* LBModuleManager.h */,
+				D6C842391FD7CD1200DCDD78 /* LBModuleManager.m */,
+				D6C842351FD7CD1200DCDD78 /* LBModuleProtocol.h */,
+				D6C8423A1FD7CD1200DCDD78 /* LBServiceManager.h */,
+				D6C842361FD7CD1200DCDD78 /* LBServiceManager.m */,
+				D6C8423C1FD7CD1200DCDD78 /* LBServiceProtocol.h */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		D68B67C220844A7E00A7C16A /* URLModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,16 +198,11 @@
 		D6C842331FD7CCF700DCDD78 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D66F1CE4219E5D04000C198D /* Module */,
 				D6C842381FD7CD1200DCDD78 /* LBModuleServer.h */,
 				D6C842371FD7CD1200DCDD78 /* LBModuleServer.m */,
 				D6C8423D1FD7CD1200DCDD78 /* LBModuleContext.h */,
 				D6C842341FD7CD1200DCDD78 /* LBModuleContext.m */,
-				D6C8423B1FD7CD1200DCDD78 /* LBModuleManager.h */,
-				D6C842391FD7CD1200DCDD78 /* LBModuleManager.m */,
-				D6C842351FD7CD1200DCDD78 /* LBModuleProtocol.h */,
-				D6C8423A1FD7CD1200DCDD78 /* LBServiceManager.h */,
-				D6C842361FD7CD1200DCDD78 /* LBServiceManager.m */,
-				D6C8423C1FD7CD1200DCDD78 /* LBServiceProtocol.h */,
 			);
 			path = Module;
 			sourceTree = "<group>";
