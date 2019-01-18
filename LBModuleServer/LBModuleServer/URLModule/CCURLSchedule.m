@@ -2,7 +2,7 @@
 //  CCURLSchedule.m
 //  LBModuleServer
 //
-//  Created by 李冰 on 2018/4/16.
+//  Created by 李冰 on 2017/4/16.
 //  Copyright © 2018年 李冰. All rights reserved.
 //
 
@@ -69,16 +69,11 @@
 
 - (id)openURL:(NSString *)URLStr fromObject:(id)fromObject customParameter:(NSDictionary *)parameter {
     
-    return [self openURL:URLStr fromObject:fromObject authorization:nil ID:nil customParameter:nil];
-}
-
-- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
-    
     NSURL *URL = [self _processURLWithString:URLStr];
     
     if (!URL) return nil;
     
-    return [self.URLRouter openURL:URL fromObject:fromObject authorization:authorization ID:ID customParameter:parameter];
+    return [self.URLRouter openURL:URL fromObject:fromObject customParameter:parameter];
 }
 
 - (Class)classFromURL:(NSString *)URLStr {

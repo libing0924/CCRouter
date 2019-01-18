@@ -2,11 +2,11 @@
 //  CCURLRegister.h
 //  LBModuleServer
 //
-//  Created by 李冰 on 2018/4/16.
+//  Created by 李冰 on 2017/4/16.
 //  Copyright © 2018年 李冰. All rights reserved.
 //
 
-// 由于OC没有包的概念URL建议格式：scheme://productName.moduleName/subModuleName/../className?key=value
+// URL建议格式：scheme://productName.moduleName/subModuleName/../className?key=value
 // 注册的时候传入的查询语句会自动填充到queryDescription说明
 
 #import <Foundation/Foundation.h>

@@ -2,7 +2,7 @@
 //  CCURLRouter.m
 //  LBModuleServer
 //
-//  Created by 李冰 on 2018/4/16.
+//  Created by 李冰 on 2017/4/16.
 //  Copyright © 2018年 李冰. All rights reserved.
 //
 
@@ -18,11 +18,6 @@
 }
 
 - (id)openURL:(NSURL *)URL fromObject:(id)fromObject customParameter:(NSDictionary *)parameter {
-    
-    return [self openURL:URL fromObject:fromObject authorization:nil ID:nil customParameter:parameter];
-}
-
-- (id)openURL:(NSURL *)URL fromObject:(id)fromObject authorization:(NSString *)authorization ID:(NSString *)ID customParameter:(NSDictionary *)parameter {
     
     if (!URL) return nil;
     
@@ -66,7 +61,7 @@
     
     // 参数处理，暂不处理参数的自动注入
     
-    // 构造器，暂不处理指定构造器的参数传入
+    // 构造器，暂不处理指定构造器的参数注入
     
     if (!isReturn) return nil;
     
