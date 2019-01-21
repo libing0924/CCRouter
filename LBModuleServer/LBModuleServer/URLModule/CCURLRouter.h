@@ -14,6 +14,8 @@
 
 - (id)openURL:(NSURL *)URL fromObject:(id)fromObject customParameter:(NSDictionary *)parameter;
 
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject customParameter:(NSDictionary *)parameter block:(void(^)(NSDictionary *parameter)) callBack;
+
 - (NSString *)classNameWithURL:(NSURL *)URL;
 
 @end

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodKey;
-FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPush;
-FOUNDATION_EXTERN NSString * const CCURLRouterOpenMethodPresent;
+UIKIT_EXTERN NSString * const CCURLRouterOpenMethodKey;
+UIKIT_EXTERN NSString * const CCURLRouterOpenMethodPush;
+UIKIT_EXTERN NSString * const CCURLRouterOpenMethodPresent;
 
 @interface UIViewController (URLRouter)
 

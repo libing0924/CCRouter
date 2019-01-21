@@ -11,6 +11,10 @@
 
 #import <Foundation/Foundation.h>
 
+#define CC_URLPOOL_CLASS_NAME_KEY @"cc.urlPool.className.key"
+
+#define CC_URLPOOL_QUERY_DES_KEY @"cc.urlPool.queryDescription.key"
+
 @interface CCURLRegister : NSObject
 
 //{url:@"";className:@"";queryDescription:@""}
@@ -21,6 +25,10 @@
 // 建议开发人员采用此方法对自己所写模块的入参进行说明
 - (BOOL)registerURL:(NSURL *)URL calssName:(NSString *)className queryDescription:(NSString *)queryDescription;
 
+// 取消注册
 - (BOOL)unregisterURL:(NSURL *)URL calssName:(NSString *)className;
+
+// 获取注册信息
+- (NSDictionary *)dataFromURL:(NSString *)URLStr;
 
 @end
