@@ -11,8 +11,8 @@
 		D68B67C520844AB100A7C16A /* CCURLRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C420844AB100A7C16A /* CCURLRegister.m */; };
 		D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C720844C0600A7C16A /* CCURLRouter.m */; };
 		D68B67CB20844F3700A7C16A /* CCURLSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67CA20844F3700A7C16A /* CCURLSchedule.m */; };
-		D68B67CE2084505900A7C16A /* CCURLPool.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67CD2084505900A7C16A /* CCURLPool.m */; };
 		D69CD4D121F1CC87005E3983 /* CCURLRouterWildcardTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = D69CD4D021F1CC87005E3983 /* CCURLRouterWildcardTemplate.m */; };
+		D69CD4D621F5632B005E3983 /* CCURLPool.m in Sources */ = {isa = PBXBuildFile; fileRef = D69CD4D521F5632B005E3983 /* CCURLPool.m */; };
 		D6C842031FD7CCED00DCDD78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842021FD7CCED00DCDD78 /* AppDelegate.m */; };
 		D6C842061FD7CCED00DCDD78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842051FD7CCED00DCDD78 /* ViewController.m */; };
 		D6C842091FD7CCED00DCDD78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C842071FD7CCED00DCDD78 /* Main.storyboard */; };
@@ -53,12 +53,12 @@
 		D68B67C720844C0600A7C16A /* CCURLRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLRouter.m; sourceTree = "<group>"; };
 		D68B67C920844F3700A7C16A /* CCURLSchedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLSchedule.h; sourceTree = "<group>"; };
 		D68B67CA20844F3700A7C16A /* CCURLSchedule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLSchedule.m; sourceTree = "<group>"; };
-		D68B67CC2084505900A7C16A /* CCURLPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLPool.h; sourceTree = "<group>"; };
-		D68B67CD2084505900A7C16A /* CCURLPool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLPool.m; sourceTree = "<group>"; };
 		D68B67CF208463E500A7C16A /* CCURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLProtocol.h; sourceTree = "<group>"; };
 		D69CD4CE21F1C71C005E3983 /* CCURLRouterWildcardProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLRouterWildcardProtocol.h; sourceTree = "<group>"; };
 		D69CD4CF21F1CC87005E3983 /* CCURLRouterWildcardTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLRouterWildcardTemplate.h; sourceTree = "<group>"; };
 		D69CD4D021F1CC87005E3983 /* CCURLRouterWildcardTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCURLRouterWildcardTemplate.m; sourceTree = "<group>"; };
+		D69CD4D421F5632B005E3983 /* CCURLPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCURLPool.h; sourceTree = "<group>"; };
+		D69CD4D521F5632B005E3983 /* CCURLPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCURLPool.m; sourceTree = "<group>"; };
 		D6C841FE1FD7CCED00DCDD78 /* LBModuleServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBModuleServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C842011FD7CCED00DCDD78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6C842021FD7CCED00DCDD78 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 				D68B67C420844AB100A7C16A /* CCURLRegister.m */,
 				D68B67C620844C0600A7C16A /* CCURLRouter.h */,
 				D68B67C720844C0600A7C16A /* CCURLRouter.m */,
-				D68B67CC2084505900A7C16A /* CCURLPool.h */,
-				D68B67CD2084505900A7C16A /* CCURLPool.m */,
+				D69CD4D421F5632B005E3983 /* CCURLPool.h */,
+				D69CD4D521F5632B005E3983 /* CCURLPool.m */,
 				D68B67CF208463E500A7C16A /* CCURLProtocol.h */,
 				D6872CA320882CBB00DAE6D0 /* UIViewController+URLRouter.h */,
 				D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */,
@@ -352,7 +352,6 @@
 				D6C842061FD7CCED00DCDD78 /* ViewController.m in Sources */,
 				D6C8423F1FD7CD1200DCDD78 /* LBServiceManager.m in Sources */,
 				D6C842401FD7CD1200DCDD78 /* LBModuleServer.m in Sources */,
-				D68B67CE2084505900A7C16A /* CCURLPool.m in Sources */,
 				D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */,
 				D6C842411FD7CD1200DCDD78 /* LBModuleManager.m in Sources */,
 				D6C8423E1FD7CD1200DCDD78 /* LBModuleContext.m in Sources */,
@@ -360,6 +359,7 @@
 				D68B67CB20844F3700A7C16A /* CCURLSchedule.m in Sources */,
 				D6C842031FD7CCED00DCDD78 /* AppDelegate.m in Sources */,
 				D6872CA520882CBB00DAE6D0 /* UIViewController+URLRouter.m in Sources */,
+				D69CD4D621F5632B005E3983 /* CCURLPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

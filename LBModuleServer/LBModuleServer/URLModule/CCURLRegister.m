@@ -11,8 +11,6 @@
 
 @interface CCURLRegister ()
 
-@property (nonatomic, strong) NSMutableDictionary *dataSource;
-
 @end
 
 @implementation CCURLRegister
@@ -54,7 +52,7 @@
     
     if (!URLStr) return nil;
     
-    NSDictionary *object = [self.dataSource objectForKey:URLStr];
+    NSDictionary *object = [[CCURLPool shareInstance] objectFromURL:URLStr];
     
     if (![object isKindOfClass:[NSDictionary class]]) return nil;
     
@@ -67,18 +65,12 @@
     
     if (!className || !URLStr) return NO;
     
-    NSDictionary *object = [NSDictionary dictionaryWithObjects:@[className, queryDescription] forKeys:@[CC_URLPOOL_CLASS_NAME_KEY, CC_URLPOOL_QUERY_DES_KEY]];
-    
-    [self.dataSource setObject:object forKey:URLStr];
-    
-    return YES;
+    return [[CCURLPool shareInstance] addClassName:className URL:URLStr queryDescription:queryDescription];
 }
 
 - (BOOL)_removeClassFromURL:(NSString *)URL {
     
-    [self.dataSource removeObjectForKey:URL];
-    
-    return YES;
+    return [[CCURLPool shareInstance] removeClassFromURL:URL];
 }
 
 
