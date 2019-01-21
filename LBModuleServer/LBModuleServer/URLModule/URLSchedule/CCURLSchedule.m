@@ -33,9 +33,9 @@
     return schedule;
 }
 
-- (BOOL)registerLocalURLWithPath:(NSString *)path {
+- (BOOL)registerURLWithLocalPath:(NSString *)path {
     
-    return [self.URLRegister registerLocalWithPath:path];
+    return [self.URLRegister registerURLWithLocalPath:path];
 }
 
 - (BOOL)registerURL:(NSString *)URLStr calss:(Class)className {
@@ -52,38 +52,28 @@
     return [self.URLRegister registerURL:URL calssName:NSStringFromClass(className) queryDescription:queryDescription];
 }
 
-- (BOOL)unregisterURL:(NSString *)URLStr calss:(Class)className {
-    
-    NSURL *URL = [self _processURLWithString:URLStr];
-    
-    if (!URL) return NO;
-    
-    return [self.URLRegister unregisterURL:URL calssName:NSStringFromClass(className)];
-}
-
-
 - (id)openURL:(NSString *)URLStr fromObject:(id)fromObject {
     
-    return [self openURL:URLStr fromObject:fromObject customParameter:nil];
+    return [self openURL:URLStr fromObject:fromObject block:nil];
 }
 
-- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject customParameter:(NSDictionary *)parameter {
+- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject block:(void(^)(NSDictionary *parameter))block {
+    
+    // handle wilcard
+    if (self.wildcardDelegate) {
+        URLStr = [self _handleUrlWildcard:URLStr];
+    }
     
     NSURL *URL = [self _processURLWithString:URLStr];
     
     if (!URL) return nil;
     
-    return [self.URLRouter openURL:URL fromObject:fromObject customParameter:parameter];
+    return [self.URLRouter openURL:URL fromObject:fromObject block:block];
 }
 
-- (Class)classFromURL:(NSString *)URLStr {
+- (NSDictionary *)infoFromURL:(NSString *)URLStr {
     
-    NSURL *URL = [self _processURLWithString:URLStr];
-    
-    if (!URL) return nil;
-    
-    NSString *className = [self.URLRouter classNameWithURL:URL];
-    return NSClassFromString(className);
+    return [[CCURLPool shareInstance] infoFromURL:URLStr];
 }
 
 #pragma mark - lazy load
@@ -113,6 +103,23 @@
     NSURL *URL = [NSURL URLWithString:percentCodeString];
     
     return URL;
+}
+
+- (NSString *)_handleUrlWildcard:(NSString *)url {
+
+    NSArray *wildcards = [self.wildcardDelegate wildcards].copy;
+    
+    
+    for (NSString *wildcard in wildcards) {
+        
+        if ([wildcards isKindOfClass:NSString.class]) {
+            
+            NSString *value = [self.wildcardDelegate valueForWildcard:wildcard];
+            url = [url stringByReplacingOccurrencesOfString:wildcard withString:value];
+        }
+    }
+    
+    return url;
 }
 
 @end

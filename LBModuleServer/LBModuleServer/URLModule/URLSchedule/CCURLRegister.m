@@ -15,8 +15,7 @@
 
 @implementation CCURLRegister
 
-//{url:@"";className:@"";parameterDes:@""}
-- (BOOL)registerLocalWithPath:(NSString *)path {
+- (BOOL)registerURLWithLocalPath:(NSString *)path {
     
     return YES;
 }
@@ -30,33 +29,10 @@
     
     NSString *key = [URL.absoluteString componentsSeparatedByString:URL_QUERY_DELIMITER].firstObject;
     
-    // verify exist
-    NSDictionary *data = [self dataFromURL:key];
+    NSDictionary *data = [[CCURLPool shareInstance] infoFromURL:key];
     if (data) return NO;
     
     return [self _addClassName:className URL:key queryDescription:queryDescription];
-}
-
-- (BOOL)unregisterURL:(NSURL *)URL calssName:(NSString *)className {
-    
-    NSString *key = [URL.absoluteString componentsSeparatedByString:URL_QUERY_DELIMITER].firstObject;
-    
-    // verify not exist
-    NSDictionary *data = [self dataFromURL:key];
-    if (!data) return NO;
-    
-    return [self _removeClassFromURL:key];
-}
-
-- (NSDictionary *)dataFromURL:(NSString *)URLStr {
-    
-    if (!URLStr) return nil;
-    
-    NSDictionary *object = [[CCURLPool shareInstance] objectFromURL:URLStr];
-    
-    if (![object isKindOfClass:[NSDictionary class]]) return nil;
-    
-    return object;
 }
 
 #pragma mark - private method
@@ -70,8 +46,7 @@
 
 - (BOOL)_removeClassFromURL:(NSString *)URL {
     
-    return [[CCURLPool shareInstance] removeClassFromURL:URL];
+    return [[CCURLPool shareInstance] removeFromURL:URL];
 }
-
 
 @end

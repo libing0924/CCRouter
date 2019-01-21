@@ -128,6 +128,16 @@
 		D68B67C220844A7E00A7C16A /* URLModule */ = {
 			isa = PBXGroup;
 			children = (
+				D69CD4D721F575B0005E3983 /* URLSchedule */,
+				D6872CA320882CBB00DAE6D0 /* UIViewController+URLRouter.h */,
+				D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */,
+			);
+			path = URLModule;
+			sourceTree = "<group>";
+		};
+		D69CD4D721F575B0005E3983 /* URLSchedule */ = {
+			isa = PBXGroup;
+			children = (
 				D68B67C920844F3700A7C16A /* CCURLSchedule.h */,
 				D68B67CA20844F3700A7C16A /* CCURLSchedule.m */,
 				D68B67C320844AB100A7C16A /* CCURLRegister.h */,
@@ -137,13 +147,11 @@
 				D69CD4D421F5632B005E3983 /* CCURLPool.h */,
 				D69CD4D521F5632B005E3983 /* CCURLPool.m */,
 				D68B67CF208463E500A7C16A /* CCURLProtocol.h */,
-				D6872CA320882CBB00DAE6D0 /* UIViewController+URLRouter.h */,
-				D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */,
 				D69CD4CE21F1C71C005E3983 /* CCURLRouterWildcardProtocol.h */,
 				D69CD4CF21F1CC87005E3983 /* CCURLRouterWildcardTemplate.h */,
 				D69CD4D021F1CC87005E3983 /* CCURLRouterWildcardTemplate.m */,
 			);
-			path = URLModule;
+			path = URLSchedule;
 			sourceTree = "<group>";
 		};
 		D6C841F51FD7CCED00DCDD78 = {

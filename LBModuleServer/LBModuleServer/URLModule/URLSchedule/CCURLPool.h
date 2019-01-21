@@ -14,10 +14,9 @@
 #define URL_QUERY_PAIR_DELIMITER @"&"
 #define URL_QUERY_KEY_VALUE_DELIMITER @"="
 
+FOUNDATION_EXTERN NSString * const CCUrlPoolClassNameKey;
 
-FOUNDATION_EXTERN NSString * const CCURLRouterIDKey;
-FOUNDATION_EXTERN NSString * const CCURLRouterAuthorizationKey;
-FOUNDATION_EXTERN NSString * const CCURLRouterCustomParameterKey;
+FOUNDATION_EXTERN NSString * const CCUrlPoolQueryDesKey;
 
 @interface CCURLPool : NSObject
 
@@ -26,20 +25,13 @@ FOUNDATION_EXTERN NSString * const CCURLRouterCustomParameterKey;
 // 加载本地URL池
 - (void)loadLocalURLPoolWithPath:(NSString *)path;
 
-// 设置容量默认无上限
-- (void)setURLPoolCapacity:(NSInteger)capacity;
+// 获取一个注册项{CCUrlPoolClassNameKey:object, CCUrlPoolQueryDesKey:object}
+- (NSDictionary *)infoFromURL:(NSString *)URLStr;
 
-// 获取class name
-- (NSString *)classNameFromURL:(NSString *)URLStr;
-
-// 获取查询说明
-- (NSString *)queryDescriptionFromURL:(NSString *)URLStr;
-
-// 获取object
-- (NSDictionary *)objectFromURL:(NSString *)URLStr;
-
+// 添加一个注册项
 - (BOOL)addClassName:(nonnull NSString *)className URL:(nonnull NSString *)URLStr queryDescription:(NSString *)queryDescription;
 
-- (BOOL)removeClassFromURL:(nonnull NSString *)URLStr;
+// 移除
+- (BOOL)removeFromURL:(nonnull NSString *)URLStr;
 
 @end

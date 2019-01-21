@@ -8,15 +8,9 @@
 
 #import "CCURLPool.h"
 
-NSString * const CCURLRouterIDKey = @"ID";
+NSString * const CCUrlPoolClassNameKey = @"cc.urlPool.className.key";
 
-NSString * const CCURLRouterAuthorizationKey = @"authorization";
-
-NSString * const CCURLRouterCustomParameterKey = @"customParameter";
-
-#define CC_URLPOOL_CLASS_NAME_KEY @"cc.urlPool.className.key"
-
-#define CC_URLPOOL_QUERY_DES_KEY @"cc.urlPool.queryDescription.key"
+NSString * const CCUrlPoolQueryDesKey = @"cc.urlPool.queryDescription.key";
 
 @interface CCURLPool ()
 
@@ -39,38 +33,17 @@ NSString * const CCURLRouterCustomParameterKey = @"customParameter";
     return pool;
 }
 
+// 暂不实现
 - (void)loadLocalURLPoolWithPath:(NSString *)path {
     
 }
 
+// 暂不实现
 - (void)setURLPoolCapacity:(NSInteger)capacity {
     
 }
 
-- (NSString *)classNameFromURL:(NSString *)URLStr {
-    
-    NSDictionary *object = [self objectFromURL:URLStr];
-    
-    if (!object) return nil;
-    
-    NSString *className = [object objectForKey:CC_URLPOOL_CLASS_NAME_KEY];
-    
-    return className;
-}
-
-- (NSString *)queryDescriptionFromURL:(NSString *)URLStr {
-    
-    
-    NSDictionary *object = [self objectFromURL:URLStr];
-    
-    if (!object) return nil;
-    
-    NSString *className = [object objectForKey:CC_URLPOOL_CLASS_NAME_KEY];
-    
-    return className;
-}
-
-- (NSDictionary *)objectFromURL:(NSString *)URLStr {
+- (NSDictionary *)infoFromURL:(NSString *)URLStr {
     
     if (!URLStr) return nil;
     
@@ -85,14 +58,15 @@ NSString * const CCURLRouterCustomParameterKey = @"customParameter";
     
     if (!className || !URLStr) return NO;
     
-    NSDictionary *object = [NSDictionary dictionaryWithObjects:@[className, queryDescription] forKeys:@[CC_URLPOOL_CLASS_NAME_KEY, CC_URLPOOL_QUERY_DES_KEY]];
+    NSDictionary *object = [NSDictionary dictionaryWithObjects:@[className, queryDescription]
+                                                       forKeys:@[CCUrlPoolClassNameKey, CCUrlPoolQueryDesKey]];
     
     [self.dataSource setObject:object forKey:URLStr];
     
     return YES;
 }
 
-- (BOOL)removeClassFromURL:(NSString *)URL {
+- (BOOL)removeFromURL:(NSString *)URL {
     
     [self.dataSource removeObjectForKey:URL];
     

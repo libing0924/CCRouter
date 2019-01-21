@@ -12,9 +12,7 @@
 
 - (id)openURL:(NSURL *)URL fromObject:(id)fromObject;
 
-- (id)openURL:(NSURL *)URL fromObject:(id)fromObject customParameter:(NSDictionary *)parameter;
-
-- (id)openURL:(NSURL *)URL fromObject:(id)fromObject customParameter:(NSDictionary *)parameter block:(void(^)(NSDictionary *parameter)) callBack;
+- (id)openURL:(NSURL *)URL fromObject:(id)fromObject block:(void(^)(NSDictionary *parameter))block;
 
 - (NSString *)classNameWithURL:(NSURL *)URL;
 
