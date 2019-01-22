@@ -13,10 +13,8 @@
 
 @interface CCURLRegister : NSObject
 
-- (BOOL)registerURLWithLocalPath:(NSString *)path;
+- (BOOL)registerURL:(NSURL *)URL calssName:(NSString *)className queryDes:(NSDictionary<NSString *, NSString *> *)des;
 
-- (BOOL)registerURL:(NSURL *)URL calssName:(NSString *)className;
-
-- (BOOL)registerURL:(NSURL *)URL calssName:(NSString *)className queryDescription:(NSString *)queryDescription;
+- (BOOL)registerURL:(NSURL *)URL object:(id)object selector:(NSString *)selector queryDes:(NSDictionary<NSString *, NSString *> *)des;
 
 @end

@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-UIKIT_EXTERN NSString * const CCURLRouterOpenMethodKey;
-UIKIT_EXTERN NSString * const CCURLRouterOpenMethodPush;
-UIKIT_EXTERN NSString * const CCURLRouterOpenMethodPresent;
+UIKIT_EXTERN NSString * const CCURLRouterControllerOpenMethodKey;
+UIKIT_EXTERN NSString * const CCURLRouterControllerOpenMethodPush;
+UIKIT_EXTERN NSString * const CCURLRouterControllerOpenMethodPresent;
+
+UIKIT_EXTERN NSString * const CCURLRouterControllerTitleKey;
 
 @interface UIViewController (URLRouter)
 
-- (void)openURL:(NSString *)URLStr openMethod:(NSString *)openMethod;
+- (void)openURL:(NSString *)urlStr openMethod:(NSString *)openMethod;
 
 @end

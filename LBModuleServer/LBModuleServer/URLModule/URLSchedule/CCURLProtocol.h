@@ -10,8 +10,10 @@
 
 @protocol CCURLProtocol <NSObject>
 
-- (BOOL)willBeOpenedWithURL:(NSURL *)URL fromObject:(id)fromObject parameter:(NSDictionary *)systemParameter;
+- (BOOL)willOpenWithURL:(NSURL *)URL fromObject:(id)fromObject parameter:(NSDictionary *)systemParameter;
 
-- (void)hasBeenOpenedWithURL:(NSURL *)URL fromObject:(id)fromObject parameter:(NSDictionary *)systemParameter block:(void (^)(NSDictionary *))block;
+- (BOOL)willInjectWithURL:(NSURL *)URL fromObject:(id)fromObject parameter:(NSDictionary *)systemParameter;
+
+- (void)beenOpenedWithURL:(NSURL *)URL fromObject:(id)fromObject parameter:(NSDictionary *)systemParameter block:(void (^)(NSDictionary *))block;
 
 @end

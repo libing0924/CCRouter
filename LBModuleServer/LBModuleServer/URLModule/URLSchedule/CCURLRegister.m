@@ -20,33 +20,63 @@
     return YES;
 }
 
-- (BOOL)registerURL:(NSURL *)URL calssName:(NSString *)className {
+- (BOOL)registerURL:(NSURL *)URL calssName:(NSString *)className queryDes:(NSDictionary<NSString *, NSString *> *)des {
     
-    return [self registerURL:URL calssName:className queryDescription:URL.query];
-}
-
-- (BOOL)registerURL:(NSURL *)URL calssName:(NSString *)className queryDescription:(NSString *)queryDescription {
+    if (!className) return NO;
     
-    NSString *key = [URL.absoluteString componentsSeparatedByString:URL_QUERY_DELIMITER].firstObject;
+    NSString *key = [self _keyWithUrl:URL];
+    if (!key.length) return NO;
     
     NSDictionary *data = [[CCURLPool shareInstance] infoFromURL:key];
     if (data) return NO;
     
-    return [self _addClassName:className URL:key queryDescription:queryDescription];
+    NSArray *necessities = [self _necessitiesFromUrl:URL];
+    
+    return [[CCURLPool shareInstance] addClassName:className queryDes:des necessities:necessities forKey:key];
 }
 
-#pragma mark - private method
-
-- (BOOL)_addClassName:(NSString *)className URL:(NSString *)URLStr queryDescription:(NSString *)queryDescription{
+- (BOOL)registerURL:(NSURL *)URL object:(id)object selector:(NSString *)selector queryDes:(NSDictionary<NSString *, NSString *> *)des {
     
-    if (!className || !URLStr) return NO;
+    if (!object || !selector) return NO;
     
-    return [[CCURLPool shareInstance] addClassName:className URL:URLStr queryDescription:queryDescription];
+    NSString *key = [self _keyWithUrl:URL];
+    if (!key.length) return NO;
+    
+    NSDictionary *data = [[CCURLPool shareInstance] infoFromURL:key];
+    if (data) return NO;
+    
+    NSArray *necessities = [self _necessitiesFromUrl:URL];
+    
+    return [[CCURLPool shareInstance] addObject:object selector:selector queryDes:des necessities:necessities forKey:key];
 }
 
-- (BOOL)_removeClassFromURL:(NSString *)URL {
+#pragma mark - private
+- (NSArray *)_necessitiesFromUrl:(NSURL *)url {
     
-    return [[CCURLPool shareInstance] removeFromURL:URL];
+    NSMutableArray *necessities = nil;
+
+    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:url resolvingAgainstBaseURL:NO];
+    for (NSURLQueryItem *queryItem in components.queryItems) {
+     
+        if (!necessities) necessities = @[].mutableCopy;
+        
+        [necessities addObject:queryItem.name];
+    }
+
+    return necessities;
+}
+
+- (NSString *)_keyWithUrl:(NSURL *)url {
+    
+    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:url resolvingAgainstBaseURL:NO];
+    
+    NSString *key = @"";
+    
+    key = [key stringByAppendingString:components.scheme];
+    key = [key stringByAppendingString:components.host];
+    key = [key stringByAppendingString:components.path];
+    
+    return key;
 }
 
 @end

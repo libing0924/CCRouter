@@ -22,17 +22,21 @@
 
 // 通过本地配置文件注册映射表
 - (BOOL)registerURLWithLocalPath:(NSString *)path;
-// 注册单个class的映射关系
-- (BOOL)registerURL:(NSString *)URLStr calss:(Class)className;
-// 建议开发人员采用此方法对自己所写模块的入参进行说明，方便协同开发
-- (BOOL)registerURL:(NSString *)URLStr calssName:(Class)className queryDescription:(NSString *)queryDescription;
+
+// 注册的时候跟的query默认为采用key=?的形式，如果openw的时候未带有和key匹配的参数则不能open
+// 注册url->class的映射
+- (BOOL)registerURL:(NSString *)urlStr calssName:(NSString *)className;
+- (BOOL)registerURL:(NSString *)urlStr calssName:(NSString *)className queryDes:(NSDictionary<NSString *, NSString *> *)des;
+// 注册url->函数的映射
+- (BOOL)registerURL:(NSString *)urlStr object:(id)object selector:(NSString *)selector;
+- (BOOL)registerURL:(NSString *)urlStr object:(id)object selector:(NSString *)selector queryDes:(NSDictionary<NSString *, NSString *> *)des;
 
 // 打开一个链接
-- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject;
+- (id)openURL:(NSString *)urlStr fromObject:(id)fromObject;
 // 打开一个链接并传递一个函数过来
-- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject block:(void(^)(NSDictionary *parameter))block;
+- (id)openURL:(NSString *)urlStr fromObject:(id)fromObject block:(void(^)(NSDictionary *parameter))block;
 
 // 根据url返回注册信息
-- (NSDictionary *)infoFromURL:(NSString *)URLStr;
+- (NSDictionary *)infoFromURL:(NSString *)urlStr;
 
 @end

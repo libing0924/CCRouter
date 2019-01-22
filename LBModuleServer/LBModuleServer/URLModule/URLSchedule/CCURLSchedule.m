@@ -35,45 +35,59 @@
 
 - (BOOL)registerURLWithLocalPath:(NSString *)path {
     
-    return [self.URLRegister registerURLWithLocalPath:path];
+    return NO;
 }
 
-- (BOOL)registerURL:(NSString *)URLStr calss:(Class)className {
+- (BOOL)registerURL:(NSString *)urlStr calssName:(NSString *)className {
     
-    return [self registerURL:URLStr calssName:className queryDescription:nil];
+    return [self registerURL:urlStr calssName:className queryDes:nil];
+}
+- (BOOL)registerURL:(NSString *)urlStr calssName:(NSString *)className queryDes:(NSDictionary<NSString *, NSString *> *)des {
+    
+    NSURL *url = [self _processURLWithString:urlStr];
+    if (!url) return NO;
+    
+    Class class = NSClassFromString(className);
+    if (!class) return NO;
+    
+    return [self.URLRegister registerURL:url calssName:className queryDes:des];
 }
 
-- (BOOL)registerURL:(NSString *)URLStr calssName:(Class)className queryDescription:(NSString *)queryDescription {
+- (BOOL)registerURL:(NSString *)urlStr object:(id)object selector:(NSString *)selector {
     
-    NSURL *URL = [self _processURLWithString:URLStr];
+    return [self registerURL:urlStr object:object selector:selector queryDes:nil];
+}
+- (BOOL)registerURL:(NSString *)urlStr object:(id)object selector:(NSString *)selector queryDes:(NSDictionary<NSString *, NSString *> *)des {
     
-    if (!URL) return NO;
+    NSURL *url = [self _processURLWithString:urlStr];
+    if (!url) return NO;
     
-    return [self.URLRegister registerURL:URL calssName:NSStringFromClass(className) queryDescription:queryDescription];
+    if (!object || !selector) return NO;
+    
+    return [self.URLRegister registerURL:url object:object selector:selector queryDes:des];
 }
 
-- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject {
+- (id)openURL:(NSString *)urlStr fromObject:(id)fromObject {
     
-    return [self openURL:URLStr fromObject:fromObject block:nil];
+    return [self openURL:urlStr fromObject:fromObject block:nil];
 }
-
-- (id)openURL:(NSString *)URLStr fromObject:(id)fromObject block:(void(^)(NSDictionary *parameter))block {
+- (id)openURL:(NSString *)urlStr fromObject:(id)fromObject block:(void(^)(NSDictionary *parameter))block {
     
     // handle wilcard
     if (self.wildcardDelegate) {
-        URLStr = [self _handleUrlWildcard:URLStr];
+        urlStr = [self _handleUrlWildcard:urlStr];
     }
     
-    NSURL *URL = [self _processURLWithString:URLStr];
+    NSURL *URL = [self _processURLWithString:urlStr];
     
     if (!URL) return nil;
     
     return [self.URLRouter openURL:URL fromObject:fromObject block:block];
 }
 
-- (NSDictionary *)infoFromURL:(NSString *)URLStr {
+- (NSDictionary *)infoFromURL:(NSString *)urlStr {
     
-    return [[CCURLPool shareInstance] infoFromURL:URLStr];
+    return [[CCURLPool shareInstance] infoFromURL:urlStr];
 }
 
 #pragma mark - lazy load

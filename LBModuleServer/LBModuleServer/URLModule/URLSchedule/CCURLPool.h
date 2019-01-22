@@ -15,23 +15,31 @@
 #define URL_QUERY_KEY_VALUE_DELIMITER @"="
 
 FOUNDATION_EXTERN NSString * const CCUrlPoolClassNameKey;
-
+FOUNDATION_EXTERN NSString * const CCUrlPoolObjectKey;
+FOUNDATION_EXTERN NSString * const CCUrlPoolSelectorKey;
 FOUNDATION_EXTERN NSString * const CCUrlPoolQueryDesKey;
+FOUNDATION_EXTERN NSString * const CCUrlPoolNecessityParamKey;
 
 @interface CCURLPool : NSObject
 
 + (id)shareInstance;
 
-// 加载本地URL池
-- (void)loadLocalURLPoolWithPath:(NSString *)path;
-
 // 获取一个注册项{CCUrlPoolClassNameKey:object, CCUrlPoolQueryDesKey:object}
-- (NSDictionary *)infoFromURL:(NSString *)URLStr;
+- (NSDictionary *)infoFromKey:(NSString *)key;
 
 // 添加一个注册项
-- (BOOL)addClassName:(nonnull NSString *)className URL:(nonnull NSString *)URLStr queryDescription:(NSString *)queryDescription;
+- (BOOL)addClassName:(nonnull NSString *)className
+            queryDes:(NSDictionary<NSString *, NSString *> *)des
+         necessities:(NSArray<NSString *> *)necessities
+              forKey:(NSString *)key;
+
+- (BOOL)addObject:(nonnull id)object
+         selector:(NSString *)selector
+         queryDes:(NSDictionary<NSString *, NSString *> *)des
+      necessities:(NSArray<NSString *> *)necessities
+           forKey:(NSString *)key;
 
 // 移除
-- (BOOL)removeFromURL:(nonnull NSString *)URLStr;
+- (BOOL)removeFromKey:(nonnull NSString *)key;
 
 @end

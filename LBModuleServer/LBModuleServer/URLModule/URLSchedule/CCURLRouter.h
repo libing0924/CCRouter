@@ -14,6 +14,4 @@
 
 - (id)openURL:(NSURL *)URL fromObject:(id)fromObject block:(void(^)(NSDictionary *parameter))block;
 
-- (NSString *)classNameWithURL:(NSURL *)URL;
-
 @end

@@ -9,7 +9,8 @@
 #import "CCURLPool.h"
 
 NSString * const CCUrlPoolClassNameKey = @"cc.urlPool.className.key";
-
+NSString * const CCUrlPoolObjectKey = @"cc.urlPool.object.key";
+NSString * const CCUrlPoolSelectorKey = @"cc.urlPool.selector.key";
 NSString * const CCUrlPoolQueryDesKey = @"cc.urlPool.queryDescription.key";
 
 @interface CCURLPool ()
@@ -34,41 +35,55 @@ NSString * const CCUrlPoolQueryDesKey = @"cc.urlPool.queryDescription.key";
 }
 
 // 暂不实现
-- (void)loadLocalURLPoolWithPath:(NSString *)path {
-    
-}
-
-// 暂不实现
 - (void)setURLPoolCapacity:(NSInteger)capacity {
     
 }
 
-- (NSDictionary *)infoFromURL:(NSString *)URLStr {
+- (NSDictionary *)infoFromKey:(NSString *)key {
     
-    if (!URLStr) return nil;
-    
-    NSDictionary *object = [self.dataSource objectForKey:URLStr];
-    
-    if (![object isKindOfClass:[NSDictionary class]]) return nil;
-    
-    return object;
+    return [self.dataSource objectForKey:key];
 }
 
-- (BOOL)addClassName:(NSString *)className URL:(NSString *)URLStr queryDescription:(NSString *)queryDescription{
+- (BOOL)addClassName:(nonnull NSString *)className
+            queryDes:(NSDictionary<NSString *, NSString *> *)des
+         necessities:(NSArray<NSString *> *)necessities
+              forKey:(NSString *)key {
     
-    if (!className || !URLStr) return NO;
+    if (!className || !key) return NO;
     
-    NSDictionary *object = [NSDictionary dictionaryWithObjects:@[className, queryDescription]
-                                                       forKeys:@[CCUrlPoolClassNameKey, CCUrlPoolQueryDesKey]];
+    NSMutableDictionary *temp = @{}.mutableCopy;
+    [temp setObject:className forKey:CCUrlPoolObjectKey];
+    if (des) [temp setObject:des forKey:CCUrlPoolQueryDesKey];
+    if (necessities) [temp setObject:necessities forKey:CCUrlPoolNecessityParamKey];
     
-    [self.dataSource setObject:object forKey:URLStr];
+    [self.dataSource setObject:temp.copy forKey:key];
     
     return YES;
 }
 
-- (BOOL)removeFromURL:(NSString *)URL {
+- (BOOL)addObject:(id)object
+         selector:(NSString *)selector
+         queryDes:(NSDictionary<NSString *, NSString *> *)des
+      necessities:(NSArray<NSString *> *)necessities
+           forKey:(NSString *)key {
     
-    [self.dataSource removeObjectForKey:URL];
+    if (!object || !key || !selector) return NO;
+    
+    NSMutableDictionary *temp = @{}.mutableCopy;
+    [temp setObject:object forKey:CCUrlPoolObjectKey];
+    [temp setObject:selector forKey:CCUrlPoolSelectorKey];
+    if (des) [temp setObject:des forKey:CCUrlPoolQueryDesKey];
+    if (necessities) [temp setObject:necessities forKey:CCUrlPoolNecessityParamKey];
+    
+    
+    [self.dataSource setObject:temp.copy forKey:key];
+    
+    return YES;
+}
+
+- (BOOL)removeFromKey:(NSString *)key {
+    
+    [self.dataSource removeObjectForKey:key];
     
     return YES;
 }

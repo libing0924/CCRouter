@@ -9,31 +9,17 @@
 #import "UIViewController+URLRouter.h"
 #import "CCURLSchedule.h"
 
-NSString * const CCURLRouterOpenMethodKey = @"open.method";
-NSString * const CCURLRouterOpenMethodPush = @"open.method.push";
-NSString * const CCURLRouterOpenMethodPresent = @"open.method.present";
+NSString * const CCURLRouterControllerOpenMethodKey = @"open.controller.method";
+NSString * const CCURLRouterControllerOpenMethodPush = @"open.controller.method.push";
+NSString * const CCURLRouterControllerOpenMethodPresent = @"open.controller.method.present";
+
+NSString * const CCURLRouterControllerTitleKey = @"open.controller.title.key";
 
 @implementation UIViewController (URLRouter)
 
-- (void)openURL:(NSString *)URLStr openMethod:(NSString *)openMethod {
+- (void)openURL:(NSString *)urlStr openMethod:(NSString *)openMethod {
     
-    id object = [[CCURLSchedule shareInstance] objectFromURL:URLStr customParameter:nil];
     
-    if (openMethod == CCURLRouterOpenMethodPush) {
-        
-        if (self.navigationController) {
-            
-            [self.navigationController pushViewController:object animated:YES];
-        }
-    }
-    else if (openMethod == CCURLRouterOpenMethodPresent) {
-        
-        [self presentViewController:object animated:YES completion:nil];
-    }
-    else {
-        
-        [self presentViewController:object animated:YES completion:nil];
-    }
 }
 
 @end
