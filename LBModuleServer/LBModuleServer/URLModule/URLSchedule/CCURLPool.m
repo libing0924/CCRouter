@@ -16,6 +16,7 @@ NSString * const CCUrlPoolNecessityParamKey = @"cc.urlPool.necessity.key";
 
 @interface CCURLPool ()
 
+
 @property (nonatomic, strong) NSMutableDictionary *dataSource;
 
 @end
