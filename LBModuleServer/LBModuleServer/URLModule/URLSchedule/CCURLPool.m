@@ -12,6 +12,7 @@ NSString * const CCUrlPoolClassNameKey = @"cc.urlPool.className.key";
 NSString * const CCUrlPoolObjectKey = @"cc.urlPool.object.key";
 NSString * const CCUrlPoolSelectorKey = @"cc.urlPool.selector.key";
 NSString * const CCUrlPoolQueryDesKey = @"cc.urlPool.queryDescription.key";
+NSString * const CCUrlPoolNecessityParamKey = @"cc.urlPool.necessity.key";
 
 @interface CCURLPool ()
 

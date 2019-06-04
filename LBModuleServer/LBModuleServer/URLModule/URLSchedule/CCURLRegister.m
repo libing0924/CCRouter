@@ -27,7 +27,7 @@
     NSString *key = [self _keyWithUrl:URL];
     if (!key.length) return NO;
     
-    NSDictionary *data = [[CCURLPool shareInstance] infoFromURL:key];
+    NSDictionary *data = [[CCURLPool shareInstance] infoFromKey:key];
     if (data) return NO;
     
     NSArray *necessities = [self _necessitiesFromUrl:URL];
@@ -42,7 +42,7 @@
     NSString *key = [self _keyWithUrl:URL];
     if (!key.length) return NO;
     
-    NSDictionary *data = [[CCURLPool shareInstance] infoFromURL:key];
+    NSDictionary *data = [[CCURLPool shareInstance] infoFromKey:key];
     if (data) return NO;
     
     NSArray *necessities = [self _necessitiesFromUrl:URL];
