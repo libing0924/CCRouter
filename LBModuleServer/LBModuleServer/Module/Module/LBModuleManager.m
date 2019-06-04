@@ -18,6 +18,7 @@
 #define kModuleInfoPriorityKey @"modulePriority"
 #define kModuleInfoHasInstantiatedKey @"moduleHasInstantiated"
 
+
 static  NSString *kSetupSelector = @"modSetUp:";
 static  NSString *kInitSelector = @"modInit:";
 static  NSString *kSplashSeletor = @"modSplash:";
