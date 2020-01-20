@@ -19,6 +19,19 @@
 
 @end
 
+@protocol CCRouterRouteStrategy <NSObject>
+
+@required
+
+/// Return rewritten and pure route
+/// @param route Original route
+- (NSString *)routeWithOriginalRoute:(NSString *)route;
+
+/// Return independent parameters from route
+/// @param route Route
+- (NSDictionary *)parametersWithRoute:(NSString *)route;
+
+@end
 
 @protocol CCRouterGenerationStrategy <NSObject>
 
@@ -36,21 +49,6 @@
 /// @param originalOrigination Original origination instance
 /// @param route Route
 - (id)generateOriginationWithOriginalOrigination:(id)originalOrigination route:(NSString *)route;
-
-@end
-
-
-@protocol CCRouterRouteStrategy <NSObject>
-
-@required
-
-/// Return rewritten and pure route
-/// @param route Original route
-- (NSString *)routeWithOriginalRoute:(NSString *)route;
-
-/// Return independent parameters from route
-/// @param route Route
-- (NSDictionary *)parametersWithRoute:(NSString *)route;
 
 @end
 

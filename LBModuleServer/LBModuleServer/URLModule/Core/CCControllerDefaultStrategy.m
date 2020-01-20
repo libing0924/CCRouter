@@ -13,48 +13,6 @@ NSString * const CCControllerOpenTypeQueryKey = @"routerOpenType";
 CCControllerOpenType const CCControllerOpenTypePush = @"routerOpenWithPush";
 CCControllerOpenType const CCControllerOpenTypePresent = @"routerOpenWithPresent";
 
-@implementation CCControllerRouterOpener
-
-- (void)openDestination:(id)destination origination:(id)origination route:(NSString *)route parameters:(NSDictionary *)parameters {
-    
-    if ([destination conformsToProtocol:@protocol(CCRouterControllerProtocol)] && [destination respondsToSelector:@selector(routerControllerWillBeOpenedFromController:route:parameters:)]) {
-        
-        BOOL isOpen = [destination routerControllerWillBeOpenedFromController:origination route:route parameters:parameters];
-        
-        if (!isOpen) return;
-    }
-    
-    if (![destination isKindOfClass:UIViewController.class] || ![origination isKindOfClass:UIViewController.class]) {
-        return;
-    }
-    
-    CCControllerOpenType openType = CCControllerOpenTypePresent;
-    
-    if ([origination isKindOfClass:UINavigationController.class] && ![destination isKindOfClass:UINavigationController.class]) {
-        
-        openType = CCControllerOpenTypePush;
-    }
-    
-    [self _openDestination:destination origination:origination route:route parameters:parameters type:openType];
-}
-
-- (void)_openDestination:(UIViewController *)destination origination:(UIViewController *)origination route:(NSString *)route parameters:(NSDictionary *)parameters type:(CCControllerOpenType)type {
-    
-    if (type == CCControllerOpenTypePush) {
-        
-        if ([origination isKindOfClass:UINavigationController.class]) {
-            [(UINavigationController *)origination pushViewController:destination animated:YES];
-        } else if(origination.navigationController) {
-            [origination.navigationController pushViewController:destination animated:YES];
-        }
-    } else if (type == CCControllerOpenTypePresent) {
-        
-        [origination presentViewController:destination animated:YES completion:nil];
-    }
-}
-
-@end
-
 @implementation CCControllerRouterRoute
 
 - (NSDictionary *)parametersWithRoute:(NSString *)route {
@@ -133,6 +91,48 @@ CCControllerOpenType const CCControllerOpenTypePresent = @"routerOpenWithPresent
            }
        }
        return topViewController;
+}
+
+@end
+
+@implementation CCControllerRouterOpener
+
+- (void)openDestination:(id)destination origination:(id)origination route:(NSString *)route parameters:(NSDictionary *)parameters {
+    
+    if ([destination conformsToProtocol:@protocol(CCRouterControllerProtocol)] && [destination respondsToSelector:@selector(routerControllerWillBeOpenedFromController:route:parameters:)]) {
+        
+        BOOL isOpen = [destination routerControllerWillBeOpenedFromController:origination route:route parameters:parameters];
+        
+        if (!isOpen) return;
+    }
+    
+    if (![destination isKindOfClass:UIViewController.class] || ![origination isKindOfClass:UIViewController.class]) {
+        return;
+    }
+    
+    CCControllerOpenType openType = CCControllerOpenTypePresent;
+    
+    if ([origination isKindOfClass:UINavigationController.class] && ![destination isKindOfClass:UINavigationController.class]) {
+        
+        openType = CCControllerOpenTypePush;
+    }
+    
+    [self _openDestination:destination origination:origination route:route parameters:parameters type:openType];
+}
+
+- (void)_openDestination:(UIViewController *)destination origination:(UIViewController *)origination route:(NSString *)route parameters:(NSDictionary *)parameters type:(CCControllerOpenType)type {
+    
+    if (type == CCControllerOpenTypePush) {
+        
+        if ([origination isKindOfClass:UINavigationController.class]) {
+            [(UINavigationController *)origination pushViewController:destination animated:YES];
+        } else if(origination.navigationController) {
+            [origination.navigationController pushViewController:destination animated:YES];
+        }
+    } else if (type == CCControllerOpenTypePresent) {
+        
+        [origination presentViewController:destination animated:YES completion:nil];
+    }
 }
 
 @end
