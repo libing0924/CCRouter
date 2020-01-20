@@ -8,11 +8,34 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <CCRouterControllerProtocol>
 
 @end
 
 @implementation ViewController
+
+
++ (UIViewController *)controllerWillBeInitiatedRouterString:(NSString *)routerString {
+    
+    BOOL isLogin = YES;
+    if (isLogin) {
+        
+        return nil;
+    }
+    
+    return nil;
+}
+
+- (void)controllerDidBeInitiatedRouterString:(NSString *)routerString parameters:(NSDictionary *)parameters {
+    
+    
+}
+
+- (void)controllerWillBeOpenedRouterString:(NSString *)routerString fromController:(UIViewController *)fromController {
+    
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

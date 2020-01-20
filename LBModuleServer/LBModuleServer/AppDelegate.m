@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CCControllerRouter.h"
+#import "CCTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -39,6 +41,16 @@
         RecursiveMethod(5);
         
     });
+    
+    [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://rootTabBar" className:@"CCTabBarViewController"];
+    [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://userProfile" className:@"CCUserProfileViewController"];
+    [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://homeSearch" className:@"CCSearchViewController"];
+    [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://unknowController" className:@"CCUnknowViewController"];
+    
+    self.window = [UIWindow new];
+    [self.window makeKeyAndVisible];
+    CCTabBarViewController *tab = [CCTabBarViewController new];
+    self.window.rootViewController = tab;
     
     return YES;
 }

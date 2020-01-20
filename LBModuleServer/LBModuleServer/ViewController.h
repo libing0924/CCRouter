@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCControllerRouterStrategy.h"
 
 @interface ViewController : UIViewController
 

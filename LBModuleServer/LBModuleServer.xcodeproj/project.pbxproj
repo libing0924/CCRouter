@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D607526623D5549E00EF5EEA /* CCControllerDefaultStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = D607526523D5549E00EF5EEA /* CCControllerDefaultStrategy.m */; };
+		D607526A23D582BA00EF5EEA /* CCTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607526923D582BA00EF5EEA /* CCTabBarViewController.m */; };
+		D607526E23D582E400EF5EEA /* CCNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607526D23D582E400EF5EEA /* CCNavigationViewController.m */; };
+		D607527123D582F900EF5EEA /* CCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607527023D582F900EF5EEA /* CCBaseViewController.m */; };
+		D607527523D5830800EF5EEA /* CCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607527323D5830800EF5EEA /* CCHomeViewController.m */; };
+		D607527623D5830800EF5EEA /* CCHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607527423D5830800EF5EEA /* CCHomeViewController.xib */; };
+		D607527A23D5831700EF5EEA /* CCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607527823D5831700EF5EEA /* CCUserViewController.m */; };
+		D607527B23D5831700EF5EEA /* CCUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607527923D5831700EF5EEA /* CCUserViewController.xib */; };
+		D607527F23D585DF00EF5EEA /* CCUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607527D23D585DF00EF5EEA /* CCUserProfileViewController.m */; };
+		D607528023D585DF00EF5EEA /* CCUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607527E23D585DF00EF5EEA /* CCUserProfileViewController.xib */; };
+		D607528423D5A51600EF5EEA /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607528223D5A51600EF5EEA /* CCSearchViewController.m */; };
+		D607528523D5A51600EF5EEA /* CCSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607528323D5A51600EF5EEA /* CCSearchViewController.xib */; };
+		D607528923D5ABF300EF5EEA /* CCUnknowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607528723D5ABF300EF5EEA /* CCUnknowViewController.m */; };
+		D607528A23D5ABF300EF5EEA /* CCUnknowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607528823D5ABF300EF5EEA /* CCUnknowViewController.xib */; };
+		D63B025B23C71C1700F776E2 /* CCControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D63B025A23C71C1700F776E2 /* CCControllerRouter.m */; };
 		D6872CA520882CBB00DAE6D0 /* UIViewController+URLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */; };
 		D68B67C520844AB100A7C16A /* CCURLRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C420844AB100A7C16A /* CCURLRegister.m */; };
 		D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B67C720844C0600A7C16A /* CCURLRouter.m */; };
@@ -21,10 +36,6 @@
 		D6C842111FD7CCED00DCDD78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842101FD7CCED00DCDD78 /* main.m */; };
 		D6C8421B1FD7CCED00DCDD78 /* LBModuleServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C8421A1FD7CCED00DCDD78 /* LBModuleServerTests.m */; };
 		D6C842261FD7CCED00DCDD78 /* LBModuleServerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842251FD7CCED00DCDD78 /* LBModuleServerUITests.m */; };
-		D6C8423E1FD7CD1200DCDD78 /* LBModuleContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842341FD7CD1200DCDD78 /* LBModuleContext.m */; };
-		D6C8423F1FD7CD1200DCDD78 /* LBServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842361FD7CD1200DCDD78 /* LBServiceManager.m */; };
-		D6C842401FD7CD1200DCDD78 /* LBModuleServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842371FD7CD1200DCDD78 /* LBModuleServer.m */; };
-		D6C842411FD7CD1200DCDD78 /* LBModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C842391FD7CD1200DCDD78 /* LBModuleManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +56,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D607526423D5549E00EF5EEA /* CCControllerDefaultStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCControllerDefaultStrategy.h; sourceTree = "<group>"; };
+		D607526523D5549E00EF5EEA /* CCControllerDefaultStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCControllerDefaultStrategy.m; sourceTree = "<group>"; };
+		D607526823D582BA00EF5EEA /* CCTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTabBarViewController.h; sourceTree = "<group>"; };
+		D607526923D582BA00EF5EEA /* CCTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTabBarViewController.m; sourceTree = "<group>"; };
+		D607526C23D582E400EF5EEA /* CCNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNavigationViewController.h; sourceTree = "<group>"; };
+		D607526D23D582E400EF5EEA /* CCNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNavigationViewController.m; sourceTree = "<group>"; };
+		D607526F23D582F900EF5EEA /* CCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBaseViewController.h; sourceTree = "<group>"; };
+		D607527023D582F900EF5EEA /* CCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBaseViewController.m; sourceTree = "<group>"; };
+		D607527223D5830800EF5EEA /* CCHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCHomeViewController.h; sourceTree = "<group>"; };
+		D607527323D5830800EF5EEA /* CCHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCHomeViewController.m; sourceTree = "<group>"; };
+		D607527423D5830800EF5EEA /* CCHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCHomeViewController.xib; sourceTree = "<group>"; };
+		D607527723D5831700EF5EEA /* CCUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserViewController.h; sourceTree = "<group>"; };
+		D607527823D5831700EF5EEA /* CCUserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserViewController.m; sourceTree = "<group>"; };
+		D607527923D5831700EF5EEA /* CCUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCUserViewController.xib; sourceTree = "<group>"; };
+		D607527C23D585DF00EF5EEA /* CCUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserProfileViewController.h; sourceTree = "<group>"; };
+		D607527D23D585DF00EF5EEA /* CCUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserProfileViewController.m; sourceTree = "<group>"; };
+		D607527E23D585DF00EF5EEA /* CCUserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCUserProfileViewController.xib; sourceTree = "<group>"; };
+		D607528123D5A51600EF5EEA /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
+		D607528223D5A51600EF5EEA /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
+		D607528323D5A51600EF5EEA /* CCSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCSearchViewController.xib; sourceTree = "<group>"; };
+		D607528623D5ABF300EF5EEA /* CCUnknowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUnknowViewController.h; sourceTree = "<group>"; };
+		D607528723D5ABF300EF5EEA /* CCUnknowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUnknowViewController.m; sourceTree = "<group>"; };
+		D607528823D5ABF300EF5EEA /* CCUnknowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCUnknowViewController.xib; sourceTree = "<group>"; };
+		D63B025923C71C1700F776E2 /* CCControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCControllerRouter.h; sourceTree = "<group>"; };
+		D63B025A23C71C1700F776E2 /* CCControllerRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCControllerRouter.m; sourceTree = "<group>"; };
+		D63B027F23C85E2900F776E2 /* CCControllerRouterStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCControllerRouterStrategy.h; sourceTree = "<group>"; };
 		D6872CA320882CBB00DAE6D0 /* UIViewController+URLRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+URLRouter.h"; sourceTree = "<group>"; };
 		D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+URLRouter.m"; sourceTree = "<group>"; };
 		D68B67C320844AB100A7C16A /* CCURLRegister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCURLRegister.h; sourceTree = "<group>"; };
@@ -75,16 +112,6 @@
 		D6C842211FD7CCED00DCDD78 /* LBModuleServerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBModuleServerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C842251FD7CCED00DCDD78 /* LBModuleServerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBModuleServerUITests.m; sourceTree = "<group>"; };
 		D6C842271FD7CCED00DCDD78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6C842341FD7CD1200DCDD78 /* LBModuleContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBModuleContext.m; sourceTree = "<group>"; };
-		D6C842351FD7CD1200DCDD78 /* LBModuleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBModuleProtocol.h; sourceTree = "<group>"; };
-		D6C842361FD7CD1200DCDD78 /* LBServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBServiceManager.m; sourceTree = "<group>"; };
-		D6C842371FD7CD1200DCDD78 /* LBModuleServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBModuleServer.m; sourceTree = "<group>"; };
-		D6C842381FD7CD1200DCDD78 /* LBModuleServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBModuleServer.h; sourceTree = "<group>"; };
-		D6C842391FD7CD1200DCDD78 /* LBModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBModuleManager.m; sourceTree = "<group>"; };
-		D6C8423A1FD7CD1200DCDD78 /* LBServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBServiceManager.h; sourceTree = "<group>"; };
-		D6C8423B1FD7CD1200DCDD78 /* LBModuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBModuleManager.h; sourceTree = "<group>"; };
-		D6C8423C1FD7CD1200DCDD78 /* LBServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBServiceProtocol.h; sourceTree = "<group>"; };
-		D6C8423D1FD7CD1200DCDD78 /* LBModuleContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBModuleContext.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,22 +139,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D66F1CE4219E5D04000C198D /* Module */ = {
+		D607525E23D4519600EF5EEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				D6C8423B1FD7CD1200DCDD78 /* LBModuleManager.h */,
-				D6C842391FD7CD1200DCDD78 /* LBModuleManager.m */,
-				D6C842351FD7CD1200DCDD78 /* LBModuleProtocol.h */,
-				D6C8423A1FD7CD1200DCDD78 /* LBServiceManager.h */,
-				D6C842361FD7CD1200DCDD78 /* LBServiceManager.m */,
-				D6C8423C1FD7CD1200DCDD78 /* LBServiceProtocol.h */,
+				D63B025C23C71D6500F776E2 /* RouterStrategy */,
+				D63B025923C71C1700F776E2 /* CCControllerRouter.h */,
+				D63B025A23C71C1700F776E2 /* CCControllerRouter.m */,
+				D607526423D5549E00EF5EEA /* CCControllerDefaultStrategy.h */,
+				D607526523D5549E00EF5EEA /* CCControllerDefaultStrategy.m */,
 			);
-			path = Module;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D607526B23D582BE00EF5EEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D607526823D582BA00EF5EEA /* CCTabBarViewController.h */,
+				D607526923D582BA00EF5EEA /* CCTabBarViewController.m */,
+				D607526C23D582E400EF5EEA /* CCNavigationViewController.h */,
+				D607526D23D582E400EF5EEA /* CCNavigationViewController.m */,
+				D607526F23D582F900EF5EEA /* CCBaseViewController.h */,
+				D607527023D582F900EF5EEA /* CCBaseViewController.m */,
+				D607528C23D5AC9800EF5EEA /* User */,
+				D607528B23D5AC9200EF5EEA /* Home */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D607528B23D5AC9200EF5EEA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D607527223D5830800EF5EEA /* CCHomeViewController.h */,
+				D607527323D5830800EF5EEA /* CCHomeViewController.m */,
+				D607527423D5830800EF5EEA /* CCHomeViewController.xib */,
+				D607528123D5A51600EF5EEA /* CCSearchViewController.h */,
+				D607528223D5A51600EF5EEA /* CCSearchViewController.m */,
+				D607528323D5A51600EF5EEA /* CCSearchViewController.xib */,
+				D607528623D5ABF300EF5EEA /* CCUnknowViewController.h */,
+				D607528723D5ABF300EF5EEA /* CCUnknowViewController.m */,
+				D607528823D5ABF300EF5EEA /* CCUnknowViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D607528C23D5AC9800EF5EEA /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D607527723D5831700EF5EEA /* CCUserViewController.h */,
+				D607527823D5831700EF5EEA /* CCUserViewController.m */,
+				D607527923D5831700EF5EEA /* CCUserViewController.xib */,
+				D607527C23D585DF00EF5EEA /* CCUserProfileViewController.h */,
+				D607527D23D585DF00EF5EEA /* CCUserProfileViewController.m */,
+				D607527E23D585DF00EF5EEA /* CCUserProfileViewController.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D63B025C23C71D6500F776E2 /* RouterStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				D63B027F23C85E2900F776E2 /* CCControllerRouterStrategy.h */,
+			);
+			path = RouterStrategy;
+			sourceTree = "<group>";
+		};
+		D63B025D23C7290900F776E2 /* RouterProtocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RouterProtocol;
 			sourceTree = "<group>";
 		};
 		D68B67C220844A7E00A7C16A /* URLModule */ = {
 			isa = PBXGroup;
 			children = (
+				D607525E23D4519600EF5EEA /* Core */,
+				D63B025D23C7290900F776E2 /* RouterProtocol */,
 				D69CD4D721F575B0005E3983 /* URLSchedule */,
 				D6872CA320882CBB00DAE6D0 /* UIViewController+URLRouter.h */,
 				D6872CA420882CBB00DAE6D0 /* UIViewController+URLRouter.m */,
@@ -178,7 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				D68B67C220844A7E00A7C16A /* URLModule */,
-				D6C842331FD7CCF700DCDD78 /* Module */,
+				D607526B23D582BE00EF5EEA /* Controllers */,
 				D6C842011FD7CCED00DCDD78 /* AppDelegate.h */,
 				D6C842021FD7CCED00DCDD78 /* AppDelegate.m */,
 				D6C842041FD7CCED00DCDD78 /* ViewController.h */,
@@ -208,18 +295,6 @@
 				D6C842271FD7CCED00DCDD78 /* Info.plist */,
 			);
 			path = LBModuleServerUITests;
-			sourceTree = "<group>";
-		};
-		D6C842331FD7CCF700DCDD78 /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				D66F1CE4219E5D04000C198D /* Module */,
-				D6C842381FD7CD1200DCDD78 /* LBModuleServer.h */,
-				D6C842371FD7CD1200DCDD78 /* LBModuleServer.m */,
-				D6C8423D1FD7CD1200DCDD78 /* LBModuleContext.h */,
-				D6C842341FD7CD1200DCDD78 /* LBModuleContext.m */,
-			);
-			path = Module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,7 +405,12 @@
 			files = (
 				D6C8420E1FD7CCED00DCDD78 /* LaunchScreen.storyboard in Resources */,
 				D6C8420B1FD7CCED00DCDD78 /* Assets.xcassets in Resources */,
+				D607528A23D5ABF300EF5EEA /* CCUnknowViewController.xib in Resources */,
+				D607527B23D5831700EF5EEA /* CCUserViewController.xib in Resources */,
+				D607528523D5A51600EF5EEA /* CCSearchViewController.xib in Resources */,
+				D607528023D585DF00EF5EEA /* CCUserProfileViewController.xib in Resources */,
 				D6C842091FD7CCED00DCDD78 /* Main.storyboard in Resources */,
+				D607527623D5830800EF5EEA /* CCHomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,17 +435,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D607527523D5830800EF5EEA /* CCHomeViewController.m in Sources */,
+				D607526E23D582E400EF5EEA /* CCNavigationViewController.m in Sources */,
+				D607526A23D582BA00EF5EEA /* CCTabBarViewController.m in Sources */,
 				D69CD4D121F1CC87005E3983 /* CCURLRouterWildcardTemplate.m in Sources */,
+				D607528423D5A51600EF5EEA /* CCSearchViewController.m in Sources */,
 				D68B67C520844AB100A7C16A /* CCURLRegister.m in Sources */,
+				D607527A23D5831700EF5EEA /* CCUserViewController.m in Sources */,
+				D607528923D5ABF300EF5EEA /* CCUnknowViewController.m in Sources */,
 				D6C842061FD7CCED00DCDD78 /* ViewController.m in Sources */,
-				D6C8423F1FD7CD1200DCDD78 /* LBServiceManager.m in Sources */,
-				D6C842401FD7CD1200DCDD78 /* LBModuleServer.m in Sources */,
+				D607527F23D585DF00EF5EEA /* CCUserProfileViewController.m in Sources */,
 				D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */,
-				D6C842411FD7CD1200DCDD78 /* LBModuleManager.m in Sources */,
-				D6C8423E1FD7CD1200DCDD78 /* LBModuleContext.m in Sources */,
 				D6C842111FD7CCED00DCDD78 /* main.m in Sources */,
+				D607526623D5549E00EF5EEA /* CCControllerDefaultStrategy.m in Sources */,
 				D68B67CB20844F3700A7C16A /* CCURLSchedule.m in Sources */,
+				D607527123D582F900EF5EEA /* CCBaseViewController.m in Sources */,
 				D6C842031FD7CCED00DCDD78 /* AppDelegate.m in Sources */,
+				D63B025B23C71C1700F776E2 /* CCControllerRouter.m in Sources */,
 				D6872CA520882CBB00DAE6D0 /* UIViewController+URLRouter.m in Sources */,
 				D69CD4D621F5632B005E3983 /* CCURLPool.m in Sources */,
 			);
