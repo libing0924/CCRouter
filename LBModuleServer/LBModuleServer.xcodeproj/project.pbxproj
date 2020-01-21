@@ -15,8 +15,6 @@
 		D607527623D5830800EF5EEA /* CCHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607527423D5830800EF5EEA /* CCHomeViewController.xib */; };
 		D607527A23D5831700EF5EEA /* CCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607527823D5831700EF5EEA /* CCUserViewController.m */; };
 		D607527B23D5831700EF5EEA /* CCUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607527923D5831700EF5EEA /* CCUserViewController.xib */; };
-		D607527F23D585DF00EF5EEA /* CCUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607527D23D585DF00EF5EEA /* CCUserProfileViewController.m */; };
-		D607528023D585DF00EF5EEA /* CCUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607527E23D585DF00EF5EEA /* CCUserProfileViewController.xib */; };
 		D607528423D5A51600EF5EEA /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607528223D5A51600EF5EEA /* CCSearchViewController.m */; };
 		D607528523D5A51600EF5EEA /* CCSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D607528323D5A51600EF5EEA /* CCSearchViewController.xib */; };
 		D607528923D5ABF300EF5EEA /* CCUnknowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D607528723D5ABF300EF5EEA /* CCUnknowViewController.m */; };
@@ -74,9 +72,6 @@
 		D607527723D5831700EF5EEA /* CCUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserViewController.h; sourceTree = "<group>"; };
 		D607527823D5831700EF5EEA /* CCUserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserViewController.m; sourceTree = "<group>"; };
 		D607527923D5831700EF5EEA /* CCUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCUserViewController.xib; sourceTree = "<group>"; };
-		D607527C23D585DF00EF5EEA /* CCUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserProfileViewController.h; sourceTree = "<group>"; };
-		D607527D23D585DF00EF5EEA /* CCUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserProfileViewController.m; sourceTree = "<group>"; };
-		D607527E23D585DF00EF5EEA /* CCUserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCUserProfileViewController.xib; sourceTree = "<group>"; };
 		D607528123D5A51600EF5EEA /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
 		D607528223D5A51600EF5EEA /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
 		D607528323D5A51600EF5EEA /* CCSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCSearchViewController.xib; sourceTree = "<group>"; };
@@ -206,9 +201,6 @@
 				D607527723D5831700EF5EEA /* CCUserViewController.h */,
 				D607527823D5831700EF5EEA /* CCUserViewController.m */,
 				D607527923D5831700EF5EEA /* CCUserViewController.xib */,
-				D607527C23D585DF00EF5EEA /* CCUserProfileViewController.h */,
-				D607527D23D585DF00EF5EEA /* CCUserProfileViewController.m */,
-				D607527E23D585DF00EF5EEA /* CCUserProfileViewController.xib */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -426,7 +418,6 @@
 				D607528A23D5ABF300EF5EEA /* CCUnknowViewController.xib in Resources */,
 				D607527B23D5831700EF5EEA /* CCUserViewController.xib in Resources */,
 				D607528523D5A51600EF5EEA /* CCSearchViewController.xib in Resources */,
-				D607528023D585DF00EF5EEA /* CCUserProfileViewController.xib in Resources */,
 				D6C842091FD7CCED00DCDD78 /* Main.storyboard in Resources */,
 				D607527623D5830800EF5EEA /* CCHomeViewController.xib in Resources */,
 				D6134FA323D68B2A00C8FE03 /* CCRouterConfigViewController.xib in Resources */,
@@ -464,7 +455,6 @@
 				D607527A23D5831700EF5EEA /* CCUserViewController.m in Sources */,
 				D607528923D5ABF300EF5EEA /* CCUnknowViewController.m in Sources */,
 				D6C842061FD7CCED00DCDD78 /* ViewController.m in Sources */,
-				D607527F23D585DF00EF5EEA /* CCUserProfileViewController.m in Sources */,
 				D68B67C820844C0600A7C16A /* CCURLRouter.m in Sources */,
 				D6C842111FD7CCED00DCDD78 /* main.m in Sources */,
 				D607526623D5549E00EF5EEA /* CCControllerDefaultStrategy.m in Sources */,

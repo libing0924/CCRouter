@@ -24,9 +24,4 @@
     [[CCControllerRouter sharedInstance] openRoute:@"ccrouter://rootTabBar?selectedIndex=0" originationController:self];
 }
 
-- (IBAction)profileAction:(UIButton *)sender {
-    
-    [[CCControllerRouter sharedInstance] openRoute:@"ccrouter://userProfile?userName=Li" originationController:self.navigationController];
-}
-
 @end

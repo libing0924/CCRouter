@@ -14,19 +14,19 @@ FOUNDATION_EXPORT NSString * const CCControllerModalStyleQueryKey;
 FOUNDATION_EXPORT NSString * const CCControllerModalAnimationQueryKey; // Value is 0 or 1
 FOUNDATION_EXPORT NSString * const CCControllerPushAnimationQueryKey; // Value is 0 or 1
 
-// 1.在这里添加通配符、route修改等
+/// Can handle wildcard and redirect related logic
 @interface CCControllerRouterRoute : NSObject <CCRouterRouteStrategy>
 
 
 @end
 
-// 2.在这里构建/修改源对象、目标对象
+/// Build/modify source and target objects
 @interface CCControllerRouterGenerator : NSObject <CCRouterGenerationStrategy>
 
 
 @end
 
-// 3.在这里处理open的逻辑
+// Handle open logical
 @interface CCControllerRouterOpener : NSObject <CCRouterOpenStrategy>
 
 @property (nonatomic, assign) BOOL pushAnimation;

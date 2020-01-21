@@ -43,7 +43,6 @@
     });
     
     [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://rootTabBar" className:@"CCTabBarViewController"];
-    [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://userProfile" className:@"CCUserProfileViewController"];
     [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://homeSearch" className:@"CCSearchViewController"];
     [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://unknowController" className:@"CCUnknowViewController"];
     [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://routerConfig" className:@"CCRouterConfigViewController"];

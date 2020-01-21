@@ -7,12 +7,19 @@
 //
 
 #import "CCUnknowViewController.h"
+#import "CCPresentedNavigationController.h"
 
 @interface CCUnknowViewController ()
 
 @end
 
 @implementation CCUnknowViewController
+
+- (UINavigationController *)navigationControllerWhenPresentedFromController:(UIViewController *)originationController route:(NSString *)route parameters:(NSDictionary *)parameters {
+    
+    CCPresentedNavigationController *navi = [[CCPresentedNavigationController alloc] initWithRootViewController:self];
+    return navi;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

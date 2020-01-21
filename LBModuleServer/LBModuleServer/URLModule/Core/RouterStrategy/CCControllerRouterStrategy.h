@@ -13,10 +13,22 @@
 @protocol CCRouterControllerProtocol <NSObject>
 
 @optional
+
+/// The instance object returned is determined by the target object's class
+/// @param route Route
+/// @param parameters Parameters
 + (UIViewController *)routerControllerWillBeInitiatedRoute:(NSString *)route parameters:(NSDictionary *)parameters;
 
+/// The return value determines whether the congtoller is opened
+/// @param originationController Origination controller
+/// @param route Route
+/// @param parameters Parameters
 - (BOOL)routerControllerWillBeOpenedFromController:(UIViewController *)originationController route:(NSString *)route parameters:(NSDictionary *)parameters;
 
+/// It is recommended to return UINavigationController instance when UIViewController instance be presented
+/// @param originationController Origination controller
+/// @param route Route
+/// @param parameters Parameters
 - (UINavigationController *)navigationControllerWhenPresentedFromController:(UIViewController *)originationController route:(NSString *)route parameters:(NSDictionary *)parameters;
 
 @end

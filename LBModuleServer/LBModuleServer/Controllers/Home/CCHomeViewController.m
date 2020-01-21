@@ -24,11 +24,15 @@ static NSString * const CCHomeCellIde = @"CCHomeCellIde";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *datas = @[@{@"title" : @"Open With Action", @"route" : @"ccrouter://rootTabBar?selectedIndex=1", @"origination" : @(1)},
-                       @{@"title" : @"Open With Parameter", @"route" : @"ccrouter://homeSearch?keyWord=风衣", @"origination" : @(1)},
-                       @{@"title" : @"Open With Push", @"route" : @"ccrouter://unknowController?R$OpenType=1", @"origination" : @(1)},
-                       @{@"title" : @"Open Router Config", @"route" : @"ccrouter://routerConfig", @"origination" : @(1)},
-                       @{@"title" : @"Open Web Controller", @"route" : @"http://www.baidu.com", @"origination" : @(1)},];
+    NSArray *datas = @[
+                       @{@"title" : @"Open Action", @"route" : @"ccrouter://rootTabBar?selectedIndex=1"},
+                       @{@"title" : @"Push Controller", @"route" : @"ccrouter://unknowController?R$OpenType=1"},
+                       @{@"title" : @"Present Controller", @"route" : @"ccrouter://homeSearch?keyWord=Basketball"},
+                       @{@"title" : @"Present Controller 2", @"route" : @"ccrouter://unknowController?R$OpenType=2"},
+                       @{@"title" : @"Push Config", @"route" : @"ccrouter://routerConfig?R$OpenType=1"},
+                       @{@"title" : @"Open Config Auto", @"route" : @"ccrouter://routerConfig"},
+                       @{@"title" : @"Open Web Auto", @"route" : @"http://www.baidu.com"},
+                      ];
     _datas = datas;
 }
 

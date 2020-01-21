@@ -107,7 +107,6 @@ NSString * const CCControllerPushAnimationQueryKey = @"R$PushAnimation";
     if ([destination conformsToProtocol:@protocol(CCRouterControllerProtocol)] && [destination respondsToSelector:@selector(routerControllerWillBeOpenedFromController:route:parameters:)]) {
         
         BOOL isOpen = [destination routerControllerWillBeOpenedFromController:origination route:route parameters:parameters];
-        
         if (!isOpen) return;
     }
     
@@ -115,28 +114,7 @@ NSString * const CCControllerPushAnimationQueryKey = @"R$PushAnimation";
         return;
     }
     
-    CCRouterControllerOpenType openType = self.openType;
-    
-    if (openType == CCRouterControllerOpenTypeAuto) {
-       
-        if ([origination isKindOfClass:UINavigationController.class] && ![destination isKindOfClass:UINavigationController.class]) {
-            
-            openType = CCRouterControllerOpenTypePush;
-        } else {
-            
-            openType = CCRouterControllerOpenTypeModal;
-        }
-    }
-    
-    NSString *openTypeValue = [parameters objectForKey:CCControllerOpenTypeQueryKey];
-    if (openTypeValue) {
-        openType = [openTypeValue integerValue];
-    }
-    
-    // UINavigationController不允许被Push
-    if ([destination isKindOfClass:UINavigationController.class]) {
-        openType = CCRouterControllerOpenTypeModal;
-    }
+    CCRouterControllerOpenType openType = [self _openTypeWithDestination:destination origination:origination parameters:parameters];
     
     BOOL animation = YES;
     UIModalPresentationStyle modalStyle = UIModalPresentationFullScreen;
@@ -144,31 +122,23 @@ NSString * const CCControllerPushAnimationQueryKey = @"R$PushAnimation";
         
         animation = self.pushAnimation;
         NSString *animationValue = [parameters objectForKey:CCControllerPushAnimationQueryKey];
-        if (animationValue) {
-            animation = (animationValue.integerValue == 0 ? NO : YES);
-        }
+        if (animationValue) animation = (animationValue.integerValue == 0 ? NO : YES);
     } else if (openType == CCRouterControllerOpenTypeModal) {
         
         animation = self.modalAnimation;
         modalStyle = self.modalStyle;
+        
         NSString *animationValue = [parameters objectForKey:CCControllerModalAnimationQueryKey];
-        if (animationValue) {
-            animation = (animationValue.integerValue == 0 ? NO : YES);
-        }
+        if (animationValue) animation = (animationValue.integerValue == 0 ? NO : YES);
         NSString *modalStyleValue = [parameters objectForKey:CCControllerModalStyleQueryKey];
-        if (modalStyleValue) {
-            modalStyle = modalStyleValue.integerValue;
-        }
+        if (modalStyleValue) modalStyle = modalStyleValue.integerValue;
         
         UINavigationController *presentedNavigationController = nil;
         if ([destination conformsToProtocol:@protocol(CCRouterControllerProtocol)] && [destination respondsToSelector:@selector(navigationControllerWhenPresentedFromController:route:parameters:)]) {
-            
             presentedNavigationController = [(id<CCRouterControllerProtocol>)destination navigationControllerWhenPresentedFromController:origination route:route parameters:parameters];
         }
         
-        if (presentedNavigationController) {
-            destination = presentedNavigationController;
-        }
+        if (presentedNavigationController) destination = presentedNavigationController;
     }
     
     [self _openDestination:destination origination:origination route:route parameters:parameters type:openType animation:animation modalStyle:modalStyle];
@@ -188,6 +158,28 @@ NSString * const CCControllerPushAnimationQueryKey = @"R$PushAnimation";
         destination.modalPresentationStyle = modalStyle;
         [origination presentViewController:destination animated:animation completion:nil];
     }
+}
+
+- (CCRouterControllerOpenType)_openTypeWithDestination:(UIViewController *)destination origination:(UIViewController *)origination parameters:(NSDictionary *)parameters {
+    
+    // Type of globe configuration
+    CCRouterControllerOpenType openType = self.openType;
+    if (openType == CCRouterControllerOpenTypeAuto) {
+        if ([origination isKindOfClass:UINavigationController.class] && ![destination isKindOfClass:UINavigationController.class]) {
+            openType = CCRouterControllerOpenTypePush;
+        } else {
+            openType = CCRouterControllerOpenTypeModal;
+        }
+    }
+    
+    // Type of parameter
+    NSString *openTypeValue = [parameters objectForKey:CCControllerOpenTypeQueryKey];
+    if (openTypeValue) openType = [openTypeValue integerValue];
+    
+    //  Cast to push when destination is UINavigationController
+    if ([destination isKindOfClass:UINavigationController.class]) openType = CCRouterControllerOpenTypeModal;
+    
+    return openType;
 }
 
 @end

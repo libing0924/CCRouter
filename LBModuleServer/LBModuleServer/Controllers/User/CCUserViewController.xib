@@ -28,23 +28,11 @@
                         <action selector="switchHomeAction:" destination="-1" eventType="touchUpInside" id="yrd-vj-E60"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lni-2I-z2Q">
-                    <rect key="frame" x="20" y="164" width="103" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Ep6-75-fGz"/>
-                    </constraints>
-                    <state key="normal" title="Push To Profile"/>
-                    <connections>
-                        <action selector="profileAction:" destination="-1" eventType="touchUpInside" id="plz-4S-sey"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="zey-nA-sE1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="7zd-on-5SC"/>
                 <constraint firstItem="zey-nA-sE1" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="OIv-Dg-iUC"/>
-                <constraint firstItem="Lni-2I-z2Q" firstAttribute="top" secondItem="zey-nA-sE1" secondAttribute="bottom" constant="30" id="Xo8-XL-Sil"/>
-                <constraint firstItem="Lni-2I-z2Q" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="pL7-KD-Zz7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="139" y="115"/>

@@ -29,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Router Globe Config";
     _pushAnimationSwitch.on = [CCControllerRouter sharedInstance].openStrategy.pushAnimation;
     _modalAnimationSwitch.on = [CCControllerRouter sharedInstance].openStrategy.modalAnimation;
     _openTypeSegment.selectedSegmentIndex = [CCControllerRouter sharedInstance].openStrategy.openType;
