@@ -46,6 +46,10 @@
     [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://userProfile" className:@"CCUserProfileViewController"];
     [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://homeSearch" className:@"CCSearchViewController"];
     [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://unknowController" className:@"CCUnknowViewController"];
+    [[CCControllerRouter sharedInstance] registerRoute:@"ccrouter://routerConfig" className:@"CCRouterConfigViewController"];
+    
+    [[CCControllerRouter sharedInstance] registerRoute:@"http://" className:@"CCWebViewController"];
+    [[CCControllerRouter sharedInstance] registerRoute:@"https://" className:@"CCWebViewController"];
     
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CCHomeViewController">
             <connections>
+                <outlet property="tableView" destination="qTg-09-tKR" id="PmH-5o-mjs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,45 +19,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-Wr-U84">
-                    <rect key="frame" x="20" y="104" width="103" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="wLi-WT-Ixq"/>
-                    </constraints>
-                    <state key="normal" title="Switch To User"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qTg-09-tKR">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="separatorColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <action selector="switchUserAction:" destination="-1" eventType="touchUpInside" id="O24-KB-ggx"/>
+                        <outlet property="dataSource" destination="-1" id="kOS-9F-N6o"/>
+                        <outlet property="delegate" destination="-1" id="QJ0-rF-XAx"/>
                     </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCx-po-sKF">
-                    <rect key="frame" x="20" y="164" width="105" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ACj-Fb-zCc"/>
-                    </constraints>
-                    <state key="normal" title="Present Search"/>
-                    <connections>
-                        <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="XAy-9v-4TA"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sk-ld-gd0">
-                    <rect key="frame" x="20" y="224" width="128" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="M4q-NY-A3j"/>
-                    </constraints>
-                    <state key="normal" title="Unknow Controller"/>
-                    <connections>
-                        <action selector="unknowAction:" destination="-1" eventType="touchUpInside" id="Msp-zX-ab9"/>
-                    </connections>
-                </button>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="d7a-Wr-U84" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="Hgs-lD-sTJ"/>
-                <constraint firstItem="3sk-ld-gd0" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="NiC-CJ-VVi"/>
-                <constraint firstItem="d7a-Wr-U84" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="scB-gZ-s3M"/>
-                <constraint firstItem="rCx-po-sKF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="u4q-m2-VAY"/>
-                <constraint firstItem="rCx-po-sKF" firstAttribute="top" secondItem="d7a-Wr-U84" secondAttribute="bottom" constant="30" id="uZk-pa-jUc"/>
-                <constraint firstItem="3sk-ld-gd0" firstAttribute="top" secondItem="rCx-po-sKF" secondAttribute="bottom" constant="30" id="waR-ed-jYq"/>
+                <constraint firstItem="qTg-09-tKR" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="Ih3-sm-ncH"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="qTg-09-tKR" secondAttribute="trailing" id="Yhi-wf-eiR"/>
+                <constraint firstItem="qTg-09-tKR" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="eA2-DI-IO6"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="qTg-09-tKR" secondAttribute="bottom" id="zkG-c1-gxc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>

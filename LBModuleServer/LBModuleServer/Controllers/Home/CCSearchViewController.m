@@ -25,7 +25,7 @@
     CCSearchViewController *search = [CCSearchViewController new];
     search->_defaultKeyWord = parameters[@"keyWord"];
     CCNavigationViewController *navi = [[CCNavigationViewController alloc] initWithRootViewController:search];
-    
+
     return navi;
 }
 

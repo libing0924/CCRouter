@@ -17,6 +17,8 @@
 
 - (BOOL)routerControllerWillBeOpenedFromController:(UIViewController *)originationController route:(NSString *)route parameters:(NSDictionary *)parameters;
 
+- (UINavigationController *)navigationControllerWhenPresentedFromController:(UIViewController *)originationController route:(NSString *)route parameters:(NSDictionary *)parameters;
+
 @end
 
 @protocol CCRouterRouteStrategy <NSObject>
@@ -53,7 +55,19 @@
 @end
 
 
+typedef NS_ENUM(NSInteger, CCRouterControllerOpenType) {
+    
+    CCRouterControllerOpenTypeAuto = 0,
+    CCRouterControllerOpenTypePush = 1,
+    CCRouterControllerOpenTypeModal = 2,
+};
+
 @protocol CCRouterOpenStrategy <NSObject>
+
+@property (nonatomic, assign) BOOL pushAnimation;
+@property (nonatomic, assign) BOOL modalAnimation;
+@property (nonatomic, assign) UIModalPresentationStyle modalStyle;
+@property (nonatomic, assign) CCRouterControllerOpenType openType;
 
 @required
 

@@ -9,6 +9,7 @@
 // 外链安全策略：1.接口白名单（客户端处理） 2.web重定向（前端处理）
 // Route采用标准的URL格式
 // 是否使用IOC?
+// 不同的open逻辑依赖scheme？
 
 #import <UIKit/UIKit.h>
 #import "CCControllerDefaultStrategy.h"
@@ -29,6 +30,6 @@
 
 - (void)openRoute:(NSString * _Nonnull)route;
 
-- (void)openRoute:(NSString * _Nonnull)route originationController:(UIViewController *)originationController;
+- (void)openRoute:(NSString * _Nonnull)route originationController:(UIViewController *_Nullable)originationController;
 
 @end

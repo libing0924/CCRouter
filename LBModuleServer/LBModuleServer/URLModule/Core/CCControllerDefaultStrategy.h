@@ -10,10 +10,9 @@
 #import "CCControllerRouterStrategy.h"
 
 FOUNDATION_EXPORT NSString * const CCControllerOpenTypeQueryKey;
-
-typedef NSString * CCControllerOpenType NS_EXTENSIBLE_STRING_ENUM;
-UIKIT_EXTERN CCControllerOpenType const CCControllerOpenTypePush;
-UIKIT_EXTERN CCControllerOpenType const CCControllerOpenTypePresent;
+FOUNDATION_EXPORT NSString * const CCControllerModalStyleQueryKey;
+FOUNDATION_EXPORT NSString * const CCControllerModalAnimationQueryKey; // Value is 0 or 1
+FOUNDATION_EXPORT NSString * const CCControllerPushAnimationQueryKey; // Value is 0 or 1
 
 // 1.在这里添加通配符、route修改等
 @interface CCControllerRouterRoute : NSObject <CCRouterRouteStrategy>
@@ -30,5 +29,9 @@ UIKIT_EXTERN CCControllerOpenType const CCControllerOpenTypePresent;
 // 3.在这里处理open的逻辑
 @interface CCControllerRouterOpener : NSObject <CCRouterOpenStrategy>
 
+@property (nonatomic, assign) BOOL pushAnimation;
+@property (nonatomic, assign) BOOL modalAnimation;
+@property (nonatomic, assign) UIModalPresentationStyle modalStyle;
+@property (nonatomic, assign) CCRouterControllerOpenType openType;
 
 @end

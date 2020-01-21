@@ -30,15 +30,26 @@
         _openStrategy = [[CCControllerRouterOpener alloc] init];
         _routeStrategy = [[CCControllerRouterRoute alloc] init];
         _generatorStrategy = [[CCControllerRouterGenerator alloc] init];
+        
+        _openStrategy.pushAnimation = YES;
+        _openStrategy.modalAnimation = YES;
+        _openStrategy.openType = CCRouterControllerOpenTypeAuto;
+        _openStrategy.modalStyle = UIModalPresentationFullScreen;
     }
     
     return self;
 }
 
-- (Class)classWithRoute:(NSString * _Nonnull)routerString {
+- (Class)classWithRoute:(NSString * _Nonnull)route {
     
-    NSString *className = [self.routeMap objectForKey:routerString];
-    
+    NSString *key = [route componentsSeparatedByString:@"?"].firstObject;
+    // Search with key
+    NSString *className = [self.routeMap objectForKey:key];
+    // Search with scheme
+    if (!className) {
+        NSString *scheme = [[NSURL URLWithString:key] scheme];
+        className = [self.routeMap objectForKey:[scheme stringByAppendingString:@"://"]];
+    }
     Class cls = NSClassFromString(className);
 
     return cls;
@@ -56,30 +67,23 @@
 
 - (void)openRoute:(NSString * _Nonnull)route originationController:(UIViewController *)originationController {
     
-    NSString *pureRoute = nil;
     if ([self.routeStrategy respondsToSelector:@selector(routeWithOriginalRoute:)]) {
-        pureRoute = [self.routeStrategy routeWithOriginalRoute:route];
+        route = [self.routeStrategy routeWithOriginalRoute:route];
     }
-    
-    if (!pureRoute) return;
+    if (!route) return;
+    NSDictionary *parameters = [self.routeStrategy parametersWithRoute:route];
     
     if ([self.generatorStrategy respondsToSelector:@selector(generateOriginationWithOriginalOrigination:route:)]) {
         originationController = [self.generatorStrategy generateOriginationWithOriginalOrigination:originationController route:route];
     }
-    
     if (!originationController) return;
     
-    Class cls = [self classWithRoute:pureRoute];
-    
+    Class cls = [self classWithRoute:route];
     if (!cls) return;
     
-    NSDictionary *parameters = [self.routeStrategy parametersWithRoute:route];
-    
-    UIViewController *destinationController = [self.generatorStrategy generateDestinationWithClass:cls route:pureRoute parameters:parameters];
-    
+    UIViewController *destinationController = [self.generatorStrategy generateDestinationWithClass:cls route:route parameters:parameters];
     if (!destinationController) return;
-    
-    [self.openStrategy openDestination:destinationController origination:originationController route:pureRoute parameters:parameters];
+    [self.openStrategy openDestination:destinationController origination:originationController route:route parameters:parameters];
 }
 
 @end

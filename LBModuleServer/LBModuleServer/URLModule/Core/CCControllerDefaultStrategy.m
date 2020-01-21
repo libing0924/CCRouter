@@ -8,30 +8,35 @@
 
 #import "CCControllerDefaultStrategy.h"
 
-NSString * const CCControllerOpenTypeQueryKey = @"routerOpenType";
-
-CCControllerOpenType const CCControllerOpenTypePush = @"routerOpenWithPush";
-CCControllerOpenType const CCControllerOpenTypePresent = @"routerOpenWithPresent";
+NSString * const CCControllerOpenTypeQueryKey = @"R$OpenType";
+NSString * const CCControllerModalStyleQueryKey = @"R$ModalStyle";
+NSString * const CCControllerModalAnimationQueryKey = @"R$ModalAnimation";
+NSString * const CCControllerPushAnimationQueryKey = @"R$PushAnimation";
 
 @implementation CCControllerRouterRoute
 
 - (NSDictionary *)parametersWithRoute:(NSString *)route {
     
-    NSString *paramtersStr = [route componentsSeparatedByString:@"?"].lastObject;
-    NSArray *queryPairs = [paramtersStr componentsSeparatedByString:@"&"];
-    NSMutableDictionary *parameters = @{}.mutableCopy;
-    for (int i = 0; i < queryPairs.count; i++) {
+    if ([route containsString:@"?"]) {
         
-        NSArray *pair = [queryPairs[i] componentsSeparatedByString:@"="];
-        [parameters setObject:pair.lastObject forKey:pair.firstObject];
+        NSString *paramtersStr = [route componentsSeparatedByString:@"?"].lastObject;
+        NSArray *queryPairs = [paramtersStr componentsSeparatedByString:@"&"];
+        NSMutableDictionary *parameters = @{}.mutableCopy;
+        for (int i = 0; i < queryPairs.count; i++) {
+            
+            NSArray *pair = [queryPairs[i] componentsSeparatedByString:@"="];
+            [parameters setObject:pair.lastObject forKey:pair.firstObject];
+        }
+        
+        return parameters.copy;
     }
     
-    return parameters.copy;
+    return nil;
 }
 
 - (NSString *)routeWithOriginalRoute:(NSString *)route {
     
-    return [route componentsSeparatedByString:@"?"].firstObject;
+    return route;
 }
 
 @end
@@ -110,28 +115,78 @@ CCControllerOpenType const CCControllerOpenTypePresent = @"routerOpenWithPresent
         return;
     }
     
-    CCControllerOpenType openType = CCControllerOpenTypePresent;
+    CCRouterControllerOpenType openType = self.openType;
     
-    if ([origination isKindOfClass:UINavigationController.class] && ![destination isKindOfClass:UINavigationController.class]) {
-        
-        openType = CCControllerOpenTypePush;
+    if (openType == CCRouterControllerOpenTypeAuto) {
+       
+        if ([origination isKindOfClass:UINavigationController.class] && ![destination isKindOfClass:UINavigationController.class]) {
+            
+            openType = CCRouterControllerOpenTypePush;
+        } else {
+            
+            openType = CCRouterControllerOpenTypeModal;
+        }
     }
     
-    [self _openDestination:destination origination:origination route:route parameters:parameters type:openType];
+    NSString *openTypeValue = [parameters objectForKey:CCControllerOpenTypeQueryKey];
+    if (openTypeValue) {
+        openType = [openTypeValue integerValue];
+    }
+    
+    // UINavigationController不允许被Push
+    if ([destination isKindOfClass:UINavigationController.class]) {
+        openType = CCRouterControllerOpenTypeModal;
+    }
+    
+    BOOL animation = YES;
+    UIModalPresentationStyle modalStyle = UIModalPresentationFullScreen;
+    if (openType == CCRouterControllerOpenTypePush) {
+        
+        animation = self.pushAnimation;
+        NSString *animationValue = [parameters objectForKey:CCControllerPushAnimationQueryKey];
+        if (animationValue) {
+            animation = (animationValue.integerValue == 0 ? NO : YES);
+        }
+    } else if (openType == CCRouterControllerOpenTypeModal) {
+        
+        animation = self.modalAnimation;
+        modalStyle = self.modalStyle;
+        NSString *animationValue = [parameters objectForKey:CCControllerModalAnimationQueryKey];
+        if (animationValue) {
+            animation = (animationValue.integerValue == 0 ? NO : YES);
+        }
+        NSString *modalStyleValue = [parameters objectForKey:CCControllerModalStyleQueryKey];
+        if (modalStyleValue) {
+            modalStyle = modalStyleValue.integerValue;
+        }
+        
+        UINavigationController *presentedNavigationController = nil;
+        if ([destination conformsToProtocol:@protocol(CCRouterControllerProtocol)] && [destination respondsToSelector:@selector(navigationControllerWhenPresentedFromController:route:parameters:)]) {
+            
+            presentedNavigationController = [(id<CCRouterControllerProtocol>)destination navigationControllerWhenPresentedFromController:origination route:route parameters:parameters];
+        }
+        
+        if (presentedNavigationController) {
+            destination = presentedNavigationController;
+        }
+    }
+    
+    [self _openDestination:destination origination:origination route:route parameters:parameters type:openType animation:animation modalStyle:modalStyle];
 }
 
-- (void)_openDestination:(UIViewController *)destination origination:(UIViewController *)origination route:(NSString *)route parameters:(NSDictionary *)parameters type:(CCControllerOpenType)type {
+- (void)_openDestination:(UIViewController *)destination origination:(UIViewController *)origination route:(NSString *)route parameters:(NSDictionary *)parameters type:(CCRouterControllerOpenType)type animation:(BOOL)animation modalStyle:(UIModalPresentationStyle)modalStyle {
     
-    if (type == CCControllerOpenTypePush) {
+    if (type == CCRouterControllerOpenTypePush) {
         
         if ([origination isKindOfClass:UINavigationController.class]) {
-            [(UINavigationController *)origination pushViewController:destination animated:YES];
+            [(UINavigationController *)origination pushViewController:destination animated:animation];
         } else if(origination.navigationController) {
-            [origination.navigationController pushViewController:destination animated:YES];
+            [origination.navigationController pushViewController:destination animated:animation];
         }
-    } else if (type == CCControllerOpenTypePresent) {
+    } else if (type == CCRouterControllerOpenTypeModal) {
         
-        [origination presentViewController:destination animated:YES completion:nil];
+        destination.modalPresentationStyle = modalStyle;
+        [origination presentViewController:destination animated:animation completion:nil];
     }
 }
 
