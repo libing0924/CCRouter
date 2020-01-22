@@ -79,9 +79,9 @@
 		D6134FA523D6990A00C8FE03 /* CCPresentedNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPresentedNavigationController.m; sourceTree = "<group>"; };
 		D6134FA923D6A70600C8FE03 /* CCWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWebViewController.h; sourceTree = "<group>"; };
 		D6134FAA23D6A70600C8FE03 /* CCWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWebViewController.m; sourceTree = "<group>"; };
+		D6134FB023D7E70D00C8FE03 /* CCControllerRouterStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControllerRouterStrategy.h; sourceTree = "<group>"; };
 		D63B025923C71C1700F776E2 /* CCControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCControllerRouter.h; sourceTree = "<group>"; };
 		D63B025A23C71C1700F776E2 /* CCControllerRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCControllerRouter.m; sourceTree = "<group>"; };
-		D63B027F23C85E2900F776E2 /* CCControllerRouterStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCControllerRouterStrategy.h; sourceTree = "<group>"; };
 		D6C841FE1FD7CCED00DCDD78 /* LBModuleServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBModuleServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C842011FD7CCED00DCDD78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6C842021FD7CCED00DCDD78 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 			children = (
 				D63B025923C71C1700F776E2 /* CCControllerRouter.h */,
 				D63B025A23C71C1700F776E2 /* CCControllerRouter.m */,
-				D63B027F23C85E2900F776E2 /* CCControllerRouterStrategy.h */,
+				D6134FB023D7E70D00C8FE03 /* CCControllerRouterStrategy.h */,
 				D607526423D5549E00EF5EEA /* CCControllerDefaultStrategy.h */,
 				D607526523D5549E00EF5EEA /* CCControllerDefaultStrategy.m */,
 			);
