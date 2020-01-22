@@ -173,18 +173,6 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		D68B67C220844A7E00A7C16A /* URLModule */ = {
-			isa = PBXGroup;
-			children = (
-				D63B025923C71C1700F776E2 /* CCControllerRouter.h */,
-				D63B025A23C71C1700F776E2 /* CCControllerRouter.m */,
-				D6134FB023D7E70D00C8FE03 /* CCControllerRouterStrategy.h */,
-				D607526423D5549E00EF5EEA /* CCControllerDefaultStrategy.h */,
-				D607526523D5549E00EF5EEA /* CCControllerDefaultStrategy.m */,
-			);
-			path = URLModule;
-			sourceTree = "<group>";
-		};
 		D6C841F51FD7CCED00DCDD78 = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +196,7 @@
 		D6C842001FD7CCED00DCDD78 /* LBModuleServer */ = {
 			isa = PBXGroup;
 			children = (
-				D68B67C220844A7E00A7C16A /* URLModule */,
+				D6D452AF23D82A9200D76D51 /* Core */,
 				D607526B23D582BE00EF5EEA /* Controllers */,
 				D6C842011FD7CCED00DCDD78 /* AppDelegate.h */,
 				D6C842021FD7CCED00DCDD78 /* AppDelegate.m */,
@@ -239,6 +227,18 @@
 				D6C842271FD7CCED00DCDD78 /* Info.plist */,
 			);
 			path = LBModuleServerUITests;
+			sourceTree = "<group>";
+		};
+		D6D452AF23D82A9200D76D51 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D63B025923C71C1700F776E2 /* CCControllerRouter.h */,
+				D63B025A23C71C1700F776E2 /* CCControllerRouter.m */,
+				D6134FB023D7E70D00C8FE03 /* CCControllerRouterStrategy.h */,
+				D607526423D5549E00EF5EEA /* CCControllerDefaultStrategy.h */,
+				D607526523D5549E00EF5EEA /* CCControllerDefaultStrategy.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
